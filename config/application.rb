@@ -12,5 +12,7 @@ module Template
     config.action_dispatch.cookies_serializer = :json
 
     config.generators.test_framework = nil
+
+    config.secret_key_base = ENV.fetch(:SECRET_KEY_BASE)
   end
 end
