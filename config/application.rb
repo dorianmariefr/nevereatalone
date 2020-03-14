@@ -13,6 +13,6 @@ module Template
 
     config.generators.test_framework = nil
 
-    config.secret_key_base = ENV.fetch(:SECRET_KEY_BASE)
+    config.secret_key_base = ENV.fetch("SECRET_KEY_BASE")
   end
 end
