@@ -58,6 +58,7 @@ GEM
       zeitwerk (~> 2.2)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    bcrypt (3.1.13)
     builder (3.2.4)
     capistrano (3.12.1)
       airbrussh (>= 1.0.0)
@@ -103,6 +104,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.2)
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
@@ -149,7 +151,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -168,15 +169,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capistrano
   capistrano-passenger
   capistrano-rails
   capistrano-rbenv
   dotenv-rails
+  pg
   puma
   rails
   slim-rails
-  sqlite3
 
 BUNDLED WITH
    2.1.4
