@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
-  database: template_capistrano_development
+  database: dorianmarie_fr_development
 
 production:
   adapter: postgresql
-  database: template_capistrano_production
+  database: dorianmarie_fr_production
