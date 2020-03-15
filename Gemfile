@@ -6,6 +6,8 @@ gem "puma"
 gem "slim-rails"
 gem "dotenv-rails"
 gem "bcrypt"
+gem "sassc"
+gem "turbolinks"
 
 group :development do
   gem "capistrano"

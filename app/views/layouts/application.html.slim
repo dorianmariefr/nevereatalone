@@ -1,9 +1,16 @@
 doctype html
 html
   head
-    title Dorian Marié
+    title= content_for?(:title) ? yield(:title) : "dorian marié"
     = csrf_meta_tags
     = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbolinks-track": "reload"
+    = javascript_include_tag "application", "data-turbolinks-track": "reload"
   body
-    pre
-      = yield
+    p.bold= link_to "dorian marié", root_path
+
+    p.bold= yield(:title)
+
+    p.red= flash[:alert].to_s.downcase
+
+    = yield
