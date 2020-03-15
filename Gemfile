@@ -5,7 +5,6 @@ gem "pg"
 gem "puma"
 gem "slim-rails"
 gem "dotenv-rails"
-gem "bcrypt"
 gem "sassc"
 gem "turbolinks"
 
