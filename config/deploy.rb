@@ -7,3 +7,5 @@ set :deploy_to, -> { "/home/#{fetch(:user)}/applications/#{fetch(:application)}"
 
 append :linked_files, '.env.production'
 append :linked_dirs, 'tmp/pids', 'tmp/sockets', 'log'
+
+set :format_options, truncate: false
