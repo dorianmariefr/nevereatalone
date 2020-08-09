@@ -7,11 +7,13 @@ html
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbolinks-track": "reload"
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
-  body
-    p.bold= link_to "dorian marié", root_path
+  body.max-w-xl.mx-auto.p-4
+    p.font-bold= link_to "dorian marié", root_path
 
-    p.bold= yield(:title)
+    - if content_for?(:title)
+      p.font-bold= yield(:title)
 
-    p.red= flash[:alert].to_s.downcase
+    - if flash[:alert].present?
+      p.text-red-600= flash[:alert].to_s.downcase
 
     = yield
