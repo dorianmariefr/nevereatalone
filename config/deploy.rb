@@ -1,7 +1,7 @@
 lock "~> 3.14.1"
 
-set :application, "dorianmarie.fr"
-set :repo_url, "git@github.com:dorianmariefr/dorianmarie.fr.git"
+set :application, "nevereatalone"
+set :repo_url, "git@github.com:dorianmariefr/nevereatalone.git"
 set :user, "ec2-user"
 set :deploy_to, -> { "/home/#{fetch(:user)}/applications/#{fetch(:application)}" }
 

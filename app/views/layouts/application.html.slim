@@ -1,14 +1,14 @@
 doctype html
 html
   head
-    title= content_for?(:title) ? yield(:title) : "dorian marié"
+    title= content_for?(:title) ? yield(:title) : "ne jamais manger seul"
     meta name="viewport" content="width=device-width, initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbolinks-track": "reload"
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
   body.max-w-xl.mx-auto.p-4
-    p.font-bold= link_to "dorian marié", root_path
+    p.font-bold= link_to "ne jamais manger seul", root_path
 
     - if content_for?(:title)
       p.font-bold= yield(:title)

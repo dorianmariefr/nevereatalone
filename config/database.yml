@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
-  database: dorianmarie_fr_development
+  database: nevereatalone_development
 
 production:
   adapter: postgresql
-  database: dorianmarie_fr_production
+  database: nevereatalone_production
