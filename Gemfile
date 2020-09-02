@@ -9,6 +9,8 @@ gem "sassc"
 gem "turbolinks"
 gem "bcrypt"
 gem "rails-i18n"
+gem "omniauth-facebook"
+gem "byebug"
 
 group :development do
   gem "capistrano"
