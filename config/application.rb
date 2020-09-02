@@ -14,5 +14,8 @@ module NeverEatAlone
     config.generators.test_framework = nil
 
     config.secret_key_base = ENV.fetch("SECRET_KEY_BASE")
+
+    config.i18n.available_locales = [:fr]
+    config.i18n.default_locale = :fr
   end
 end
