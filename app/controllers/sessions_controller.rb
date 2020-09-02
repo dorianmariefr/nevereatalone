@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
     @user ||= User.find_by(email: email)
 
     if @user
-      @user.update!(facebook_id: uid) if @user.facebook_id.blank?
+      if @user.facebook_id.blank?
+        @user.update!(facebook_id: uid)
+      end
+
+      attach_image_from_url(@user, image_url)
       session[:user_id] = @user.id
       redirect_to root_path
       return
@@ -25,6 +29,7 @@ class SessionsController < ApplicationController
     )
 
     if @user.save
+      attach_image_from_url(@user, image_url)
       session[:user_id] = @user.id
       redirect_to root_path
     else
@@ -42,5 +47,11 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env["omniauth.auth"]
+  end
+
+  def attach_image_from_url(user, image_url)
+    return if user.image.attached?
+    image = Down.download(image_url)
+    user.image.attach(io: image, filename: "image.jpg")
   end
 end

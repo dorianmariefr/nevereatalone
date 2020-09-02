@@ -11,6 +11,11 @@ gem "bcrypt"
 gem "rails-i18n"
 gem "omniauth-facebook"
 gem "byebug"
+gem "down"
+gem "listen"
+gem "webpacker"
+gem "babel-transpiler"
+gem "font-awesome-sass"
 
 group :development do
   gem "capistrano"

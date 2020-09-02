@@ -1,27 +1,18 @@
 doctype html
 html
   head
-    title= content_for?(:title) ? yield(:title) : "ne jamais manger seul"
+    title= content_for?(:title) ? yield(:title) : "Ne jamais manger seul"
     meta name="viewport" content="width=device-width, initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbolinks-track": "reload"
-    = javascript_include_tag "application", "data-turbolinks-track": "reload"
+    = javascript_pack_tag "application", "data-turbolinks-track": "reload"
   body
-    .max-w-2xl.mx-auto.p-4
-      .flex.flex-col.sm:flex-row.justify-between
-        .mb-4.sm:mb-0.mx-auto.sm:mx-0
-          = link_to root_path do
-            = image_tag "logo.png", class: "inline-block w-6 mr-2"
-          = link_to "ne jamais manger seul", root_path, class: "no-underline hover:underline"
-        .mx-auto.sm:mx-0
-          - if current_user
-            => link_to "mon profil", current_user
-            => link_to "mon compte", [current_user, :account]
-            = link_to "me déconnecter", session_path, method: :delete
-          - else
-            => link_to "s'inscrire", new_user_path, class: "button button--primary"
-            = link_to "se connecter", new_session_path, class: "button"
+    .sm:hidden
+      = render "layouts/mobile_navbar"
+
+    .hidden.sm:block
+      = render "layouts/desktop_navbar"
 
     - if flash[:alert].present?
       .max-w-2xl.mx-auto

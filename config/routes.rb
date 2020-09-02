@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :users do
-    get "account" => "users#account"
-  end
+  resources :users
 
   resource :session
 

@@ -17,18 +17,18 @@
     = form_for @user do |f|
       p
         = f.label :first_name, "Prénom", class: "block"
-        = f.text_field :first_name, placeholder: "Prénom", class: "w-full"
+        = f.text_field :first_name, placeholder: "Prénom", class: "w-full mb-4"
 
       p
         = f.label :last_name, "Nom", class: "block"
-        = f.text_field :last_name, placeholder: "Nom", class: "w-full"
+        = f.text_field :last_name, placeholder: "Nom", class: "w-full mb-4"
 
       p
         = f.label :email, "Adresse e-mail", class: "block"
-        = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full"
+        = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full mb-4"
 
       p
         = f.label :password, "Mot de passe", class: "block"
-        = f.password_field :password, placeholder: "Mot de passe", class: "w-full"
+        = f.password_field :password, placeholder: "Mot de passe", class: "w-full mb-4"
 
       p.text-center= f.submit "S'inscrire", class: "button button--primary button--medium"

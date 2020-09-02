@@ -1,0 +1,30 @@
+.max-w-2xl.mx-auto
+  - if current_user
+    / logged in on mobile
+    .relative(data-controller="toggle")
+      .text-center.flex.justify-between.p-4
+        => link_to root_path do
+          = image_tag "logo.png", class: "inline-block w-8"
+
+        = link_to "#", data: { action: "toggle#toggle" } do
+          = fa("bars", class: "text-3xl")
+
+      .absolute.hidden.bg-white.w-full.border-black.border-b(data-target="toggle.target")
+        = link_to current_user, class: "block border-black border-t p-4" do
+            => fa("user")
+            ' Profile
+
+        = link_to session_path, method: "delete", class: "block border-black border-t p-4" do
+            => fa("sign-out-alt")
+            ' Se déconnecter
+  - else
+    / guest on mobile
+    .text-center.pt-4
+      => link_to root_path do
+        = image_tag "logo.png", class: "inline-block w-8"
+
+      = link_to "Ne jamais manger seul", root_path, class: "no-underline hover:underline"
+
+    .mx-auto.text-center.my-4
+      => link_to "S'inscrire", new_user_path, class: "inline-block button button--primary"
+      = link_to "Se connecter", new_session_path, class: "inline-block button"

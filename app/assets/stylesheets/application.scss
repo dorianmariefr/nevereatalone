@@ -2,15 +2,8 @@
  *= require tailwind.min
  */
 
-// base
-
-a {
-  text-decoration: underline;
-}
-
-p {
-  margin-bottom: 10px;
-}
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // inputs
 
