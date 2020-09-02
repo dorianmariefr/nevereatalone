@@ -35,6 +35,10 @@ input[type="submit"],
   &:hover {
     background-color: darken(#ccc, 10%);
   }
+
+  &:focus {
+    background-color: darken(#ccc, 20%);
+  }
 }
 
 .button--primary {
@@ -42,6 +46,10 @@ input[type="submit"],
 
   &:hover {
     background-color: darken(#ecc94b, 10%)
+  }
+
+  &:focus {
+    background-color: darken(#ecc94b, 20%)
   }
 }
 
