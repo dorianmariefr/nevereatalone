@@ -5,6 +5,7 @@
 .env
 .env.*
 .byebug_history
+/storage/
 
 /public/packs
 /public/packs-test
