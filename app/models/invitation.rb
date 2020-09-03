@@ -31,4 +31,8 @@ class Invitation < ApplicationRecord
   def declined?
     status == "declined"
   end
+
+  def to_s
+    "de #{user} pour #{availability}: #{status}"
+  end
 end

@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def should_generate_new_friendly_id?
     slug.nil? || first_name_changed? || last_name_changed?
   end
+
+  def to_s
+    full_name
+  end
 end
