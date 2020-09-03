@@ -6,7 +6,7 @@ set :user, "ec2-user"
 set :deploy_to, -> { "/home/#{fetch(:user)}/applications/#{fetch(:application)}" }
 
 append :linked_files, ".env.production", ".env.staging"
-append :linked_dirs, "tmp/pids", "tmp/sockets", "log", "node_modules"
+append :linked_dirs, "tmp/pids", "tmp/sockets", "log", "node_modules", "storage"
 
 set :format_options, truncate: false
 
