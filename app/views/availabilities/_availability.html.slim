@@ -1,23 +1,25 @@
-= link_to availability, class: "mb-4 flex bg-gray-300 rounded hover:bg-gray-400" do
-  .flex.flex-col.p-4
+.mb-4.flex.bg-gray-300.rounded
+  .p-4
     .text-center.mb-2
-      => user_image_for(availability.user, class: "w-12 rounded-full inline-block")
+      = link_to availability.user do
+        => user_image_for(availability.user, class: "w-12 rounded-full inline-block")
 
-    .text-center= availability.user.full_name
+    .text-center= link_to availability.user.full_name, availability.user, class: "underline"
 
-  .flex.flex-col.p-4
+  .p-4
     p.mb-2
-      => l(availability.starts_at, format: "Le %A %e %B à %kh%M")
-      ' à
-      = availability.location
+      = link_to availability, class: "underline" do
+        => l(availability.starts_at, format: "Le %A %e %B à %kh%M")
+        ' à
+        = availability.location
 
     - if availability.details.present?
       p.mb-2.border-l-2.border-gray-600.pl-2.text-gray-600= availability.details
 
     - if availability.user == current_user
-      = count_for(availability.invitations.sent, one: "une invitation en attente de réponse", other: "invitations en attente de réponse", class: "mb-2 text-blue-600")
-      = count_for(availability.invitations.accepted, one: "une invitation acceptée", other: "invitations acceptées", class: "mb-2")
-      = count_for(availability.invitations.declined, one: "une invitation invitation déclinée", other: "invitations déclinées", class: "mb-2")
+      = count_for(availability.invitations.sent, one: "une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600")
+      = count_for(availability.invitations.accepted, one: "une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600")
+      = count_for(availability.invitations.declined, one: "une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600")
 
     - elsif availability.invitations.where(user: current_user).any?
       p.text-green-600 demande de rejoindre envoyée

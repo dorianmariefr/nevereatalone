@@ -1,0 +1,25 @@
+.max-w-2xl.mx-auto.px-4
+  .text-center.mb-4
+    = link_to @availability.user do
+      => user_image_for(@availability.user, class: "w-12 rounded-full inline-block")
+
+  .text-center.mb-4= link_to @availability.user.full_name, @availability.user, class: "underline"
+
+  h1.text-lg.font-bold.mb-4.text-center
+    => l(@availability.starts_at, format: "Le %A %e %B à %kh%M")
+    ' à
+    = @availability.location
+
+  - if @availability.details.present?
+    p.text-center.mb-4.text-gray-600
+      = @availability.details
+
+  - if @availability.user == current_user
+    h1.text-lg.font-bold.mb-4.text-center Demandes de rejoindre ce rendez-vous
+    = render_or_none @availability.invitations, none: "Aucune"
+  - elsif @availability.invitations.where(user: current_user).any?
+    p.text-green-600.text-center demande de rejoindre envoyée
+  - else
+    = form_for Invitation.new(availability: @availability) do |f|
+      = f.hidden_field :availability_id
+      p.text-center= f.submit "demander à rejoindre", class: "button--primary"

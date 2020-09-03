@@ -8,6 +8,10 @@
           ' Ne jamais manger seul
 
       div
+        = link_to root_path, class: "mr-4" do
+            => fa("columns")
+            ' Demandes
+
         = link_to current_user, class: "mr-4" do
             => fa("user")
             ' Profil

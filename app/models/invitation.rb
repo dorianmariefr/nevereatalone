@@ -5,6 +5,7 @@ class Invitation < ApplicationRecord
   belongs_to :availability
 
   validates :status, presence: true, inclusion: { in: STATUSES }
+  validates :availability_id, uniqueness: { scope: :user_id }
 
   scope :sent, -> { where(status: :sent) }
   scope :accepted, -> { where(status: :accepted) }
@@ -17,5 +18,17 @@ class Invitation < ApplicationRecord
         "ne peut pas être une de vos de demandes de rendez-vous"
       )
     end
+  end
+
+  def sent?
+    status == "sent"
+  end
+
+  def accepted?
+    status == "accepted"
+  end
+
+  def declined?
+    status == "declined"
   end
 end

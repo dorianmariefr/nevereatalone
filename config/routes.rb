@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :invitations do
     post "accept" => "invitations#accept"
-    post "reject" => "invitations#reject"
+    post "decline" => "invitations#decline"
   end
 
   get "auth/facebook/callback", to: "sessions#facebook"

@@ -1,0 +1,17 @@
+.flex.bg-gray-300.rounded.mb-4
+  .p-4
+    .text-center.mb-2
+      = link_to invitation.user do
+        => user_image_for(invitation.user, class: "w-12 rounded-full inline-block")
+
+    .text-center= link_to invitation.user.full_name, invitation.user, class: "underline"
+
+  .p-4
+    - if invitation.sent?
+      p
+        => link_to "Refuser", [invitation, :decline], method: :post, class: "button inline-block"
+        = link_to "Accepter", [invitation, :accept], method: :post, class: "button button--primary inline-block"
+    - elsif invitation.accepted?
+      p.text-green-600 Vous avez accepté la demande de rendez-vous
+    - else
+      p.text-red-600 Vous avez refusé la demande de rendez-vous

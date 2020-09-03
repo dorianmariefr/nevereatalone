@@ -6,10 +6,22 @@ class InvitationsController < ApplicationController
     @invitation.status = "sent"
 
     if @invitation.save
-      redirect_to root_path
+      redirect_to @invitation.availability
     else
       redirect_to root_path, alert: @invitation.full_error_messages
     end
+  end
+
+  def accept
+    @invitation = Invitation.find(params[:invitation_id])
+    @invitation.update!(status: :accepted)
+    redirect_to @invitation.availability
+  end
+
+  def decline
+    @invitation = Invitation.find(params[:invitation_id])
+    @invitation.update!(status: :declined)
+    redirect_to @invitation.availability
   end
 
   private

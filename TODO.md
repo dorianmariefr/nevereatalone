@@ -2,3 +2,5 @@
 - decline invitation
 - availability page
 - send email when invitation is sent
+- put on production env
+- facebook login in production

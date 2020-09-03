@@ -1,11 +1,14 @@
 class AvailabilitiesController < ApplicationController
   load_and_authorize_resource
 
+  def show
+  end
+
   def create
     @availability.user = current_user
 
     if @availability.save
-      redirect_to root_path
+      redirect_to @availability
     else
       redirect_to root_path, alert: @availability.full_error_messages
     end
