@@ -15,6 +15,7 @@
       = @availability.details
 
   - if @availability.user == current_user
+    p.mb-4.text-center= link_to "supprimer ce rendez-vous", @availability, method: :delete, class: "text-red-600 underline"
     h1.text-lg.font-bold.mb-4.text-center Demandes de rejoindre ce rendez-vous
     = render_or_none @availability.invitations, none: "Aucune", class: "text-center"
     = render "messages/messages", availability: @availability
