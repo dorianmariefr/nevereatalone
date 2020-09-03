@@ -1,0 +1,4 @@
+- accept invitation
+- decline invitation
+- availability page
+- send email when invitation is sent

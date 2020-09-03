@@ -1,6 +1,8 @@
 class Availability < ApplicationRecord
   belongs_to :user
 
+  has_many :invitations
+
   validates :starts_at, presence: true
   validates :location, presence: true
 

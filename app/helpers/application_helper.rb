@@ -22,4 +22,14 @@ module ApplicationHelper
       content_tag(:p, none, class: "mb-4")
     end
   end
+
+  def count_for(collection, one:, other:, **options)
+    if collection.any?
+      if collection.size == 1
+        content_tag(:p, one, **options)
+      else
+        content_tag(:p, "#{collection.size} #{other}", **options)
+      end
+    end
+  end
 end

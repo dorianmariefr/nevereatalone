@@ -9,5 +9,7 @@ class Ability
 
     can :create, Availability
     can :manage, Availability, user_id: user.id
+
+    can :create, Invitation
   end
 end

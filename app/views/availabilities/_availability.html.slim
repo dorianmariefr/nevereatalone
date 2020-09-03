@@ -1,10 +1,9 @@
-.mb-4.flex.bg-gray-300.rounded
+= link_to availability, class: "mb-4 flex bg-gray-300 rounded hover:bg-gray-400" do
   .flex.flex-col.p-4
-    => link_to availability.user, class: "text-center mb-2" do
+    .text-center.mb-2
       => user_image_for(availability.user, class: "w-12 rounded-full inline-block")
 
-    = link_to availability.user, class: "text-center" do
-      = availability.user.full_name
+    .text-center= availability.user.full_name
 
   .flex.flex-col.p-4
     p.mb-2
@@ -15,7 +14,14 @@
     - if availability.details.present?
       p.mb-2.border-l-2.border-gray-600.pl-2.text-gray-600= availability.details
 
-    - if can? :destroy, availability
-      p= link_to "supprimer", availability, method: :delete, class: "text-red-600 underline"
+    - if availability.user == current_user
+      = count_for(availability.invitations.sent, one: "une invitation en attente de réponse", other: "invitations en attente de réponse", class: "mb-2 text-blue-600")
+      = count_for(availability.invitations.accepted, one: "une invitation acceptée", other: "invitations acceptées", class: "mb-2")
+      = count_for(availability.invitations.declined, one: "une invitation invitation déclinée", other: "invitations déclinées", class: "mb-2")
+
+    - elsif availability.invitations.where(user: current_user).any?
+      p.text-green-600 demande de rejoindre envoyée
     - else
-      p= link_to "demander à rejoindre", "#", class: "button button--primary"
+      = form_for Invitation.new(availability: availability) do |f|
+        = f.hidden_field :availability_id
+        p= f.submit "demander à rejoindre", class: "button--primary"
