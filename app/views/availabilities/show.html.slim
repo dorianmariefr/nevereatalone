@@ -16,7 +16,7 @@
 
   - if @availability.user == current_user
     h1.text-lg.font-bold.mb-4.text-center Demandes de rejoindre ce rendez-vous
-    = render_or_none @availability.invitations, none: "Aucune"
+    = render_or_none @availability.invitations, none: "Aucune", class: "text-center"
   - elsif @availability.invitations.where(user: current_user).any?
     p.text-green-600.text-center demande de rejoindre envoyée
   - else

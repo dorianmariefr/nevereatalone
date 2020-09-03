@@ -8,7 +8,7 @@ class AvailabilitiesController < ApplicationController
     @availability.user = current_user
 
     if @availability.save
-      redirect_to @availability
+      redirect_to root_path
     else
       redirect_to root_path, alert: @availability.full_error_messages
     end

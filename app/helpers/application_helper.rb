@@ -15,11 +15,13 @@ module ApplicationHelper
     end
   end
 
-  def render_or_none(collection, none: "Aucun")
+  def render_or_none(collection, none: "Aucun", **options)
     if collection.any?
       render(collection)
     else
-      content_tag(:p, none, class: "mb-4")
+      options[:class] ||= ""
+      options[:class] = "#{options[:class]} mb-4".strip
+      content_tag(:p, none, **options)
     end
   end
 
