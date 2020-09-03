@@ -17,9 +17,9 @@
       p.mb-2.border-l-2.border-gray-600.pl-2.text-gray-600= availability.details
 
     - if availability.user == current_user
-      = count_for(availability.invitations.sent, one: "une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600")
-      = count_for(availability.invitations.accepted, one: "une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600")
-      = count_for(availability.invitations.declined, one: "une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600")
+      = link_and_count_for(availability, availability.invitations.sent, one: "une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600 underline")
+      = link_and_count_for(availability, availability.invitations.accepted, one: "une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600 underline")
+      = link_and_count_for(availability, availability.invitations.declined, one: "une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600 underline")
 
     - elsif availability.invitations.where(user: current_user).any?
       p.text-green-600 demande de rejoindre envoyée

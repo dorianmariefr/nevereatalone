@@ -25,13 +25,15 @@ module ApplicationHelper
     end
   end
 
-  def count_for(collection, one:, other:, **options)
+  def link_and_count_for(object, collection, one:, other:, **options)
     if collection.any?
       if collection.size == 1
-        content_tag(:p, one, **options)
+        text = one
       else
-        content_tag(:p, "#{collection.size} #{other}", **options)
+        text = "#{collection.size} #{other}"
       end
+
+      content_tag(:p, link_to(text, object), **options)
     end
   end
 end

@@ -16,6 +16,7 @@ class InvitationsController < ApplicationController
   def accept
     @invitation = Invitation.find(params[:invitation_id])
     @invitation.update!(status: :accepted)
+    InvitationMailer.with(invitation: @invitation).invitation_accepted_email.deliver_now
     redirect_to @invitation.availability
   end
 

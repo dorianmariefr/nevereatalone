@@ -1,0 +1,7 @@
+<%= @to.full_name %> a accepté ta demande de rendez-vous <%= @availability.to_s %>.
+
+Accepté par <%= @to.full_name %>: <%= url_for(@to) %>
+
+Rendez-vous <%= @availability.to_s %>: <%= url_for(@availability) %>
+
+Tu peux maintenant envoyer des messages à <%= @to.full_name %> sur la page du rendez-vous: <%= url_for(@availability) %>
