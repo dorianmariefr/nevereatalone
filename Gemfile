@@ -18,6 +18,7 @@ gem "babel-transpiler"
 gem "font-awesome-sass"
 gem "cancancan"
 gem "friendly_id"
+gem "activeadmin"
 
 group :development do
   gem "capistrano"
