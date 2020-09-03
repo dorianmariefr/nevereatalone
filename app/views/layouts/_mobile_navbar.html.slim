@@ -9,13 +9,17 @@
         = fa("bars", class: "text-3xl")
 
     .absolute.hidden.bg-white.w-full.border-black.border-b(data-target="toggle.target")
+      = link_to root_path, class: "block border-black border-t p-4" do
+        => fa("columns")
+        ' Demandes de rendez-vous
+
       = link_to current_user, class: "block border-black border-t p-4" do
-          => fa("user")
-          ' Profil
+        => fa("user")
+        ' Profil
 
       = link_to session_path, method: "delete", class: "block border-black border-t p-4" do
-          => fa("sign-out-alt")
-          ' Se déconnecter
+        => fa("sign-out-alt")
+        ' Se déconnecter
 - else
   / guest on mobile
   .text-center.pt-4
