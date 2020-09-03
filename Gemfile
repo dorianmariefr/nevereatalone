@@ -19,6 +19,7 @@ gem "font-awesome-sass"
 gem "cancancan"
 gem "friendly_id"
 gem "activeadmin"
+gem "paper_trail"
 
 group :development do
   gem "capistrano"

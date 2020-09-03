@@ -1,3 +1,1 @@
-- add admin interface
-- papertrail
 - admin email on any change

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
+  before_action :set_paper_trail_whodunnit
   check_authorization unless: :admin_controller?
 
   rescue_from CanCan::AccessDenied do
