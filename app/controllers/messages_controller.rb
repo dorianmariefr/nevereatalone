@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      @message.users.without(current_user).each do |user|
+      @message.availability.users.without(current_user).each do |user|
         MessageMailer.with(message: @message, to: user).new_message_email.deliver_now
       end
 

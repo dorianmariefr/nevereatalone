@@ -25,6 +25,10 @@ class Availability < ApplicationRecord
     end
   end
 
+  def users
+    invitations.accepted.map(&:user) + [user]
+  end
+
   def to_s
     time = I18n.l(starts_at, format: "le %A %e %B à %kh%M")
     "#{time} à #{location}"
