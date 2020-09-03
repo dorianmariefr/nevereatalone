@@ -1,0 +1,15 @@
+= form_for availability do |f|
+  p.mb-4
+    ' Quand ? Le
+    = f.datetime_select :starts_at, datetime_separator: "à "
+
+  p.mb-4
+    ' Où ? À
+    = f.text_field :location, placeholder: "Paris"
+
+  p.mb-4
+    ' Des détails ?
+    span.text-gray-600() (optionel)
+    = f.text_field :details, placeholder: "Pizza, sushi, chez moi, etc.", class: "w-full"
+
+  p.mb-4= f.submit "Ajouter"

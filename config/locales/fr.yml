@@ -6,3 +6,7 @@ fr:
         last_name: "Nom"
         email: "Adresse e-mail"
         password: "Mot de passe"
+
+      availability:
+        location: "Lieu"
+        starts_at: "Heure de début"

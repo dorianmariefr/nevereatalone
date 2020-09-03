@@ -1,0 +1,21 @@
+.mb-4.flex.bg-gray-300.rounded
+  .flex.flex-col.p-4
+    => link_to availability.user, class: "text-center mb-2" do
+      => user_image_for(availability.user, class: "w-12 rounded-full inline-block")
+
+    = link_to availability.user, class: "text-center" do
+      = availability.user.full_name
+
+  .flex.flex-col.p-4
+    p.mb-2
+      => l(availability.starts_at, format: "Le %A %e %B à %kh%M")
+      ' à
+      = availability.location
+
+    - if availability.details.present?
+      p.mb-2.border-l-2.border-gray-600.pl-2.text-gray-600= availability.details
+
+    - if can? :destroy, availability
+      p= link_to "supprimer", availability, method: :delete, class: "text-red-600 underline"
+    - else
+      p= link_to "demander à rejoindre", "#", class: "button button--primary"

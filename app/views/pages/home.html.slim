@@ -1,5 +1,16 @@
 - if current_user
   .max-w-2xl.mx-auto.px-4
+    h1.text-lg.font-bold.mb-4 Ajouter une demande de rendez-vous
+
+    = render "availabilities/form", availability: @availability
+
+    h1.text-lg.font-bold.mb-4 Mes demandes de rendez-vous
+
+    = render_or_none(@current_user_availabilities, none: "Aucune")
+
+    h1.text-lg.font-bold.mb-4 Demandes de rendez-vous
+
+    = render_or_none(@other_users_availabilities, none: "Aucune")
 - else
   .sm:hidden
     = image_tag "background.jpg", class: "mb-4"
