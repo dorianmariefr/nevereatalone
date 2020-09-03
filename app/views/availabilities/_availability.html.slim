@@ -22,7 +22,13 @@
       = link_and_count_for(availability, availability.invitations.declined, one: "une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600 underline")
 
     - elsif availability.invitations.where(user: current_user).any?
-      p.text-green-600 demande de rejoindre envoyée
+      - invitation = availability.invitations.find_by(user: current_user)
+      - if invitation.sent?
+        p.text-blue-600 demande de rejoindre envoyée
+      - elsif invitation.accepted?
+        p.text-green-600 demande de rejoindre acceptée
+      - else
+        p.text-red-600 demande de rejoindre déclinée
     - else
       = form_for Invitation.new(availability: availability) do |f|
         = f.hidden_field :availability_id
