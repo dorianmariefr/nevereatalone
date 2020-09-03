@@ -1,0 +1,6 @@
+= form_for Message.new(availability: availability) do |f|
+  = f.hidden_field :availability_id
+
+  p= f.text_area :content, class: "w-full h-16"
+
+  p= f.submit "envoyer"

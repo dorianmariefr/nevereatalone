@@ -17,12 +17,14 @@
   - if @availability.user == current_user
     h1.text-lg.font-bold.mb-4.text-center Demandes de rejoindre ce rendez-vous
     = render_or_none @availability.invitations, none: "Aucune", class: "text-center"
+    = render "messages/messages", availability: @availability
   - elsif @availability.invitations.where(user: current_user).any?
     - invitation = @availability.invitations.find_by(user: current_user)
     - if invitation.sent?
       p.text-blue-600.text-center demande de rejoindre envoyée
     - elsif invitation.accepted?
       p.text-green-600.text-center demande de rejoindre acceptée
+      = render "messages/messages", availability: @availability
     - else
       p.text-red-600.text-center demande de rejoindre déclinée
   - else

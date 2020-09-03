@@ -1,5 +1,5 @@
-- send messages to accepted people
 - profile views
 - profile bio
 - edit profile
 - edit profile photo
+- delete availability

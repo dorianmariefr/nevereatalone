@@ -1,0 +1,7 @@
+h1.text-lg.font-bold.mb-4 Messages
+
+= render_or_none(availability.messages)
+
+h1.text-lg.font-bold.mb-4 Envoyer un message
+
+= render "messages/form", availability: availability

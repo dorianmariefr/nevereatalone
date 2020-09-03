@@ -1,0 +1,7 @@
+<%= @message.content %>
+
+Envoyé par <%= @from.full_name %>: <%= url_for(@from) %>
+
+Sur le rendez-vous <%= @availability.to_s %>: <%= url_for(@availability) %>
+
+Voir les messages: <%= url_for(@availability) %>

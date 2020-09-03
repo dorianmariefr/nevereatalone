@@ -1,0 +1,8 @@
+.pl-2.border-l-2.border-gray-500.mb-4
+  = simple_format(message.content)
+
+p.mb-4
+  => link_to message.user.full_name, message.user, class: "underline"
+  - if can? :destroy, message
+    = link_to "supprimer", message, method: :delete, class: "text-red-600 underline"
+

@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   check_authorization
 
+  rescue_from CanCan::AccessDenied do
+    redirect_to root_path, alert: "Tu ne peux pas faire ça"
+  end
+
   private
 
   def current_user

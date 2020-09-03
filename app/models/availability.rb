@@ -1,7 +1,8 @@
 class Availability < ApplicationRecord
   belongs_to :user
 
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :starts_at, presence: true
   validates :location, presence: true

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resource :session
   resources :availabilities
+  resources :messages
 
   resources :invitations do
     post "accept" => "invitations#accept"
