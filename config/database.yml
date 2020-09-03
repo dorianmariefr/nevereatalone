@@ -2,6 +2,10 @@ development:
   adapter: postgresql
   database: nevereatalone_development
 
+staging:
+  adapter: postgresql
+  database: nevereatalone_staging
+
 production:
   adapter: postgresql
   database: nevereatalone_production
