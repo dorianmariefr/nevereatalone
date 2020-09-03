@@ -6,6 +6,7 @@ class InvitationsController < ApplicationController
     @invitation.status = "sent"
 
     if @invitation.save
+      InvitationMailer.with(invitation: @invitation).invitation_sent_email.deliver_now
       redirect_to @invitation.availability
     else
       redirect_to root_path, alert: @invitation.full_error_messages

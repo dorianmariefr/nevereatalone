@@ -19,5 +19,7 @@ module NeverEatAlone
     config.i18n.default_locale = :fr
 
     config.time_zone = "Europe/Paris"
+
+    config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
   end
 end

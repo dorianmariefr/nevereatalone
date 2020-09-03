@@ -1,4 +1,8 @@
-- send email when invitation is sent
 - put on production env
 - facebook login in production
 - send messages to accepted people
+- mail when invitation is accepted
+- profile views
+- profile bio
+- edit profile
+- edit profile photo

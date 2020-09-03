@@ -23,4 +23,9 @@ class Availability < ApplicationRecord
       errors.add(:starts_at, "doit être dans le futur")
     end
   end
+
+  def to_s
+    time = I18n.l(starts_at, format: "le %A %e %B à %kh%M")
+    "#{time} à #{location}"
+  end
 end
