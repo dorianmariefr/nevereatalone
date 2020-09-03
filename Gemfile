@@ -17,6 +17,7 @@ gem "webpacker"
 gem "babel-transpiler"
 gem "font-awesome-sass"
 gem "cancancan"
+gem "friendly_id"
 
 group :development do
   gem "capistrano"

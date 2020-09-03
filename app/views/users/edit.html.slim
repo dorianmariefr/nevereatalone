@@ -1,0 +1,30 @@
+- title "Mettre à jour mon profil"
+
+.max-w-2xl.mx-auto.px-4
+  h1.text-center.text-lg.mb-4 Mettre à jour mon profil
+
+  = form_for @user do |f|
+    p
+      = f.label :image, "Photo de profil", class: "block"
+      = f.file_field :image
+    p
+      = f.label :first_name, "Prénom", class: "block"
+      = f.text_field :first_name, placeholder: "Prénom", class: "w-full mb-4"
+
+    p
+      = f.label :last_name, "Nom", class: "block"
+      = f.text_field :last_name, placeholder: "Nom", class: "w-full mb-4"
+
+    p
+      = f.label :email, "Adresse e-mail", class: "block"
+      = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full mb-4"
+
+    p
+      = f.label :password, "Mot de passe", class: "block"
+      = f.password_field :password, placeholder: "Mot de passe", class: "w-full mb-4"
+
+    p
+      = f.label :bio, "À propos de moi", class: "block"
+      = f.text_area :bio, placeholder: "J'aime... Je fais... Je veux...", class: "w-full mb-4"
+
+    p.text-center= f.submit "Mettre à jour", class: "button button--primary button--medium"

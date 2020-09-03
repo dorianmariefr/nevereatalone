@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_113503) do
+ActiveRecord::Schema.define(version: 2020_09_03_161618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(version: 2020_09_03_113503) do
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "availability_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["availability_id"], name: "index_messages_on_availability_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "first_name", null: false
@@ -65,11 +75,16 @@ ActiveRecord::Schema.define(version: 2020_09_03_113503) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "facebook_id"
+    t.string "slug", null: false
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "availabilities", "users"
   add_foreign_key "invitations", "availabilities"
   add_foreign_key "invitations", "users"
+  add_foreign_key "messages", "availabilities"
+  add_foreign_key "messages", "users"
 end

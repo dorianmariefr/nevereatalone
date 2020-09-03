@@ -1,5 +1,2 @@
-- profile views
-- profile bio
-- edit profile
-- edit profile photo
 - delete availability
+- add comments on users

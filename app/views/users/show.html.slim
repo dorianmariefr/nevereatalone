@@ -1,0 +1,14 @@
+- title @user.full_name
+
+.max-w-2xl.mx-auto.px-4
+  p.mb-4.text-center=> user_image_for(@user, class: "w-32 rounded-full inline-block")
+
+  p.mb-4.text-center= @user.full_name
+
+  - if @user.bio.present?
+    .text-center.mb-4= simple_format(@user.bio)
+
+  - if can? :update, @user
+    p.mb-4.text-center
+      => link_to "mettre à jour mon profil", [:edit, @user], class: "underline"
+      = link_to "supprimer mon compte", @user, method: :delete, class: "text-red-600 underline"
