@@ -15,7 +15,7 @@ html
       = render "layouts/desktop_navbar"
 
     - if flash[:alert].present?
-      .max-w-2xl.mx-auto
+      .max-w-2xl.mx-auto.pb-4
         p.text-center.text-red-600= flash[:alert]
 
     = yield

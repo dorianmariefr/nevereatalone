@@ -1,4 +1,23 @@
 class SessionsController < ApplicationController
+  def show
+    redirect_to new_session_path
+  end
+
+  def new
+  end
+
+  def create
+    @user = User.find_by(email: session_params[:email])
+
+    if @user&.authenticate(session_params[:password])
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      flash.now.alert = "Mauvaise combinaison d'adresse e-mail et de mot de passe"
+      render :new
+    end
+  end
+
   def facebook
     uid = auth_hash["uid"]
     email = auth_hash["info"]["email"]
@@ -53,5 +72,9 @@ class SessionsController < ApplicationController
     return if user.image.attached?
     image = Down.download(image_url)
     user.image.attach(io: image, filename: "image.jpg")
+  end
+
+  def session_params
+    params.require(:session).permit(:email, :password)
   end
 end
