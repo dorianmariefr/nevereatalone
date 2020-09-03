@@ -22,6 +22,7 @@ gem "cancancan"
 gem "friendly_id"
 gem "activeadmin"
 gem "paper_trail"
+gem "bugsnag"
 
 group :development do
   gem "capistrano"

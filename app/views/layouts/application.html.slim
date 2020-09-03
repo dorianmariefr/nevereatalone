@@ -6,6 +6,11 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbolinks-track": "reload"
+    - if Rails.env.production? || Rails.env.staging?
+      script(src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js")
+      javascript:
+        Bugsnag.start({ apiKey: '<%= ENV.fetch("BUGNSAG_JS_API_KEY") %>' })
+
     = javascript_pack_tag "application", "data-turbolinks-track": "reload"
   body
     .sm:hidden
