@@ -1,5 +1,5 @@
 ActiveAdmin.setup do |config|
-  config.site_title = "dorianmarie.fr"
+  config.site_title = "ne jamais manger seul"
   config.site_title_link = "/"
   config.authentication_method = :authenticate_admin_user!
   config.authorization_adapter = ActiveAdmin::CanCanAdapter
