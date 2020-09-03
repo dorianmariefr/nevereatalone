@@ -17,6 +17,7 @@
 
   = render_or_none(@user.received_comments)
 
-  h1.text-lg.font-bold.mb-4 Ajouter un commentaire
+  - if @user != current_user
+    h1.text-lg.font-bold.mb-4 Ajouter un commentaire
 
-  = render "comments/form", user: @user
+    = render "comments/form", user: @user
