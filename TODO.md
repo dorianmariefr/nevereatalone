@@ -1,1 +1,3 @@
-- add comments on users
+- add admin interface
+- papertrail
+- admin email on any change
