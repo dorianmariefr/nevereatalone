@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many :invitations, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :received_comments, class_name: "Comment", foreign_key: :to_user_id
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true

@@ -36,4 +36,16 @@ module ApplicationHelper
       content_tag(:p, link_to(text, object), **options)
     end
   end
+
+  def yes_no(field, f:)
+    safe_join([
+      f.radio_button(field, true),
+      " ",
+      f.label(field, "Oui", value: true),
+      " ",
+      f.radio_button(field, false),
+      " ",
+      f.label(field, "Non", value: false)
+    ])
+  end
 end

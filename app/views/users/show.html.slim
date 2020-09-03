@@ -12,3 +12,11 @@
     p.mb-4.text-center
       => link_to "mettre à jour mon profil", [:edit, @user], class: "underline"
       = link_to "supprimer mon compte", @user, method: :delete, class: "text-red-600 underline"
+
+  h1.text-lg.font-bold.mb-4 Commentaires
+
+  = render_or_none(@user.received_comments)
+
+  h1.text-lg.font-bold.mb-4 Ajouter un commentaire
+
+  = render "comments/form", user: @user

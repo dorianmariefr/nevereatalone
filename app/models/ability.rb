@@ -21,5 +21,8 @@ class Ability
     can :manage, Message do |message|
       message.availability.invitations.accepted.where(user_id: user.id).any?
     end
+
+    can :create, Comment
+    can :manage, Comment, from_user_id: user.id
   end
 end

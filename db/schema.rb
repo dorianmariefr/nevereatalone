@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_161618) do
+ActiveRecord::Schema.define(version: 2020_09_03_164630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2020_09_03_161618) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "details"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "from_user_id", null: false
+    t.bigint "to_user_id", null: false
+    t.text "content", null: false
+    t.boolean "recommend", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["from_user_id"], name: "index_comments_on_from_user_id"
+    t.index ["to_user_id"], name: "index_comments_on_to_user_id"
   end
 
   create_table "invitations", force: :cascade do |t|
@@ -83,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_161618) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "availabilities", "users"
+  add_foreign_key "comments", "users", column: "from_user_id"
+  add_foreign_key "comments", "users", column: "to_user_id"
   add_foreign_key "invitations", "availabilities"
   add_foreign_key "invitations", "users"
   add_foreign_key "messages", "availabilities"

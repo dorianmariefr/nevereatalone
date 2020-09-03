@@ -1,0 +1,13 @@
+.pl-2.border-l-2.border-gray-500.mb-4
+  - if comment.recommend?
+    p.mb-2= fa("thumbs-up")
+  - else
+    p.mb-2= fa("thumbs-down")
+  = simple_format(comment.content)
+
+p.mb-4
+  => link_to comment.from_user.full_name, comment.from_user, class: "underline"
+
+  - if can? :destroy, comment
+    = link_to "supprimer", comment, method: :delete, class: "text-red-600 underline"
+
