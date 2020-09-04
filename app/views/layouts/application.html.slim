@@ -9,7 +9,15 @@ html
     - if Rails.env.production? || Rails.env.staging?
       script(src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js")
       javascript:
-        Bugsnag.start({ apiKey: '<%= ENV.fetch("BUGNSAG_JS_API_KEY") %>' })
+        Bugsnag.start({ apiKey: '#{ENV.fetch("BUGSNAG_JS_API_KEY")}' })
+
+      script(async src="https://www.googletagmanager.com/gtag/js?id=UA-176524378-4")
+      javascript:
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '#{ENV.fetch("GOOGLE_TRACKING_ID")}');
 
     = javascript_pack_tag "application", "data-turbolinks-track": "reload"
   body
