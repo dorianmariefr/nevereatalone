@@ -1,0 +1,5 @@
+p.mb-4
+  => interest.content
+
+  - if can? :destroy, interest
+    = link_to "supprimer", interest, method: :delete, class: "text-red-600 underline"
