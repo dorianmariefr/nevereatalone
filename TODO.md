@@ -1,6 +1,5 @@
 ### features
 
-- google analytics
 - centers of interests of users
 - users list
 - search users by center of interest
