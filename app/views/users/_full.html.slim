@@ -11,4 +11,4 @@
   - if user.interests.any?
     p.mb-4
       - user.interests.each do |interest|
-        .inline-block.bg-white.rounded.p-2.mr-2= interest.content
+        => link_to interest.content, interest, class: "button"

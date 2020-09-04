@@ -28,6 +28,7 @@ class Ability
       can :create, Comment
       can :manage, Comment, from_user_id: user.id
 
+      can :read, Interest
       can :create, Interest
       can :manage, Interest, user_id: user.id
     end

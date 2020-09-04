@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_201243) do
+ActiveRecord::Schema.define(version: 2020_09_04_190756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 2020_09_03_201243) do
     t.index ["to_user_id"], name: "index_comments_on_to_user_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug", null: false
+    t.index ["slug"], name: "index_interests_on_slug", unique: true
+    t.index ["user_id"], name: "index_interests_on_user_id"
+  end
+
   create_table "invitations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "availability_id", null: false
@@ -122,6 +132,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_201243) do
   add_foreign_key "availabilities", "users"
   add_foreign_key "comments", "users", column: "from_user_id"
   add_foreign_key "comments", "users", column: "to_user_id"
+  add_foreign_key "interests", "users"
   add_foreign_key "invitations", "availabilities"
   add_foreign_key "invitations", "users"
   add_foreign_key "messages", "availabilities"

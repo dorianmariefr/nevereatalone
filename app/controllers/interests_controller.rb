@@ -1,5 +1,9 @@
 class InterestsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug
+
+  def show
+    @users = User.joins(:interests).where(interests: { content: @interest.content })
+  end
 
   def create
     @interest.user = current_user

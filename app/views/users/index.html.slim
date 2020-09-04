@@ -3,5 +3,10 @@
 .max-w-2xl.mx-auto.px-4
   h1.text-lg.mb-4.font-bold Personnes
 
+  p.mb-4
+    ' Trouves par centre d'intérêt:
+    - @interests.each do |interest|
+      => link_to interest.content, interest, class: "button"
+
   - @users.each do |user|
     = render "users/full", user: user

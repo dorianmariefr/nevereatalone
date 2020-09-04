@@ -1,0 +1,7 @@
+- title @interest.content
+
+.max-w-2xl.mx-auto.px-4
+  h1.text-lg.mb-4.font-bold= @interest.content
+
+  - @users.each do |user|
+    = render "users/full", user: user
