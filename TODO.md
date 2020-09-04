@@ -1,7 +1,5 @@
 ### features
 
-- titles for register and login
-- or between facebook and email
 - show who is going to receive the message in an availability
 - hide past availabilities
 - send email when someone post a comment on my profil
