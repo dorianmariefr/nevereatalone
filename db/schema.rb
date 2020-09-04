@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_04_190756) do
+ActiveRecord::Schema.define(version: 2020_09_04_200143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 2020_09_04_190756) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["from_user_id"], name: "index_comments_on_from_user_id"
     t.index ["to_user_id"], name: "index_comments_on_to_user_id"
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.bigint "from_user_id", null: false
+    t.bigint "to_user_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["from_user_id"], name: "index_direct_messages_on_from_user_id"
+    t.index ["to_user_id"], name: "index_direct_messages_on_to_user_id"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -132,6 +142,8 @@ ActiveRecord::Schema.define(version: 2020_09_04_190756) do
   add_foreign_key "availabilities", "users"
   add_foreign_key "comments", "users", column: "from_user_id"
   add_foreign_key "comments", "users", column: "to_user_id"
+  add_foreign_key "direct_messages", "users", column: "from_user_id"
+  add_foreign_key "direct_messages", "users", column: "to_user_id"
   add_foreign_key "interests", "users"
   add_foreign_key "invitations", "availabilities"
   add_foreign_key "invitations", "users"

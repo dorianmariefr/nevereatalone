@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :comments
   resources :interests
+  resources :direct_messages
 
   resources :invitations do
     post "accept" => "invitations#accept"

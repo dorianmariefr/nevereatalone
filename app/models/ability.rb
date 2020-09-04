@@ -31,6 +31,10 @@ class Ability
       can :read, Interest
       can :create, Interest
       can :manage, Interest, user_id: user.id
+
+      can :read, DirectMessage, to_user_id: user.id
+      can :create, DirectMessage
+      can :manage, DirectMessage, from_user_id: user.id
     end
   end
 end

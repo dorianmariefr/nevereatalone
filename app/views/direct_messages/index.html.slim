@@ -1,0 +1,22 @@
+- title "Messages"
+
+.max-w-2xl.mx-auto.px-4
+  - if params[:user_id].present?
+    h1.text-lg.mb-4.font-bold= "Messages avec #{@user}"
+
+    = render_or_none(@direct_messages)
+
+    = form_for @direct_message do |f|
+      = f.hidden_field :to_user_id
+
+      p.mb-4= f.text_area :content, class: "w-full h-16"
+
+      p.mb-4= f.submit "Envoyer"
+  - else
+    - @users.each do |user|
+      p.mb-4
+        => link_to user.full_name, direct_messages_path(user_id: user.id), class: "underline"
+        | (
+        = count_for(DirectMessage.between(user, current_user), zero: "aucun message", one: "un message", other: "messages")
+        ' )
+

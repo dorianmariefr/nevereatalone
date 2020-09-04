@@ -17,6 +17,9 @@
 
     p.mb-4.text-center
       = link_to "Supprimer mon compte", @user, method: :delete, class: "text-red-600 underline"
+  - else
+    p.mb-4.text-center
+      = link_to "Envoyer un message", new_direct_message_path(to_user_id: @user.id), class: "underline"
 
   h1.text-lg.font-bold.mb-4 Centres d'intérêt
 

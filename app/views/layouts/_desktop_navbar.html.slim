@@ -20,7 +20,10 @@
           => fa("user")
           ' Profil
 
-        = link_to session_path, class: "mr-4" do
+        = link_to direct_messages_path, class: "mr-4" do
+          => fa("envelope")
+
+        = link_to session_path, method: :delete, class: "mr-4" do
           = fa("sign-out-alt")
   - else
     / guest on desktop

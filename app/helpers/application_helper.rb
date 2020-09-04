@@ -37,6 +37,16 @@ module ApplicationHelper
     end
   end
 
+  def count_for(collection, zero:, one:, other:)
+    if collection.empty?
+      zero
+    elsif collection.size == 1
+      one
+    else
+      "#{collection.size} #{other}"
+    end
+  end
+
   def yes_no(field, f:)
     safe_join([
       f.radio_button(field, true),
