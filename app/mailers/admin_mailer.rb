@@ -3,6 +3,9 @@ class AdminMailer < ApplicationMailer
     @model = params[:model]
     @user = params[:user]
 
-    mail(to: @user.email, subject: "#{@model.class}##{@model.id}: #{@model.to_s}")
+    mail(
+      to: @user.email,
+      subject: "#{Rails.env} #{@model.class}##{@model.id}: #{@model.to_s}"
+    )
   end
 end
