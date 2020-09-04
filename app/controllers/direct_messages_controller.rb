@@ -18,6 +18,7 @@ class DirectMessagesController < ApplicationController
     @direct_message.from_user = current_user
 
     if @direct_message.save
+      DirectMessageMailer.with(direct_message: @direct_message).received_direct_message_email.deliver_now
       redirect_to direct_messages_path(user_id: @direct_message.to_user_id)
     else
       flash.now.alert = @direct_message.full_error_messages

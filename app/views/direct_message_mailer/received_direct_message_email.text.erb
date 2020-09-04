@@ -1,0 +1,7 @@
+<%= @direct_message.content %>
+
+Envoyé par <%= @from_user %>: <%= url_for(@from_user) %>
+
+Voir les messages avec <%= @from_user %>: <%= direct_messages_url(user_id: @from_user.id) %>
+
+Répondre au message de <%= @from_user %>: <%= new_direct_message_url(to_user_id: @from_user.id) %>
