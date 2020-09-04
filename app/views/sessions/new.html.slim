@@ -29,3 +29,7 @@
         = f.password_field :password, placeholder: "Mot de passe", class: "w-full mb-4"
 
       p.text-center= f.submit "Se connecter", class: "button button--primary button--medium"
+
+  p.mb-4.text-center.text-gray-600 Tu n'as pas de compte ?
+
+  p.mb-4.text-center= link_to "S'inscrire", new_user_path, class: "button"

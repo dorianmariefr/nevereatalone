@@ -22,13 +22,13 @@
   - elsif @availability.invitations.where(user: current_user).any?
     - invitation = @availability.invitations.find_by(user: current_user)
     - if invitation.sent?
-      p.text-blue-600.text-center demande de rejoindre envoyée
+      p.text-blue-600.text-center.mb-4 demande de rejoindre envoyée
     - elsif invitation.accepted?
-      p.text-green-600.text-center demande de rejoindre acceptée
+      p.text-green-600.text-center.mb-4 demande de rejoindre acceptée
       = render "messages/messages", availability: @availability
     - else
-      p.text-red-600.text-center demande de rejoindre déclinée
+      p.text-red-600.text-center.mb-4 demande de rejoindre déclinée
   - else
     = form_for Invitation.new(availability: @availability) do |f|
       = f.hidden_field :availability_id
-      p.text-center= f.submit "demander à rejoindre", class: "button--primary"
+      p.text-center.mb-4= f.submit "demander à rejoindre", class: "button--primary"

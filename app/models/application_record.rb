@@ -10,6 +10,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def full_error_messages
-    errors.full_messages.join(", ")
+    errors.full_messages.to_sentence
   end
 end

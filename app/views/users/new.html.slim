@@ -36,3 +36,8 @@
         = f.password_field :password, placeholder: "Mot de passe", class: "w-full mb-4"
 
       p.text-center= f.submit "S'inscrire", class: "button button--primary button--medium"
+
+  p.mb-4.text-center.text-gray-600 Tu as déjà un compte ?
+
+  p.mb-4.text-center= link_to "Se connecter", new_session_path, class: "button"
+

@@ -25,8 +25,7 @@ class Availability < ApplicationRecord
     end
   end
 
-  # TODO: rename to conversation_users
-  def users
+  def conversation_users
     invitations.accepted.map(&:user) + [user]
   end
 
