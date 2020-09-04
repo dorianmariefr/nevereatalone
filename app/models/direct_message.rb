@@ -9,4 +9,8 @@ class DirectMessage < ApplicationRecord
       DirectMessage.where(from_user: other_user, to_user: user)
     )
   end
+
+  def to_s
+    content
+  end
 end
