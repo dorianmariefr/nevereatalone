@@ -11,8 +11,10 @@
     = @availability.location
 
   - if @availability.details.present?
-    p.text-center.mb-4.text-gray-600
-      = @availability.details
+    p.text-center.mb-4.text-gray-600= @availability.details
+
+  - if @availability.past?
+    p.text-center.mb-4 Demande de rendez-vous expirée
 
   - if @availability.user == current_user
     p.mb-4.text-center= link_to "supprimer ce rendez-vous", @availability, method: :delete, class: "text-red-600 underline"
@@ -28,7 +30,7 @@
       = render "messages/messages", availability: @availability
     - else
       p.text-red-600.text-center.mb-4 demande de rejoindre déclinée
-  - else
+  - elsif @availability.recent?
     = form_for Invitation.new(availability: @availability) do |f|
       = f.hidden_field :availability_id
       p.text-center.mb-4= f.submit "demander à rejoindre", class: "button--primary"
