@@ -3,9 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if current_user
-      @current_user_availabilities = current_user.availabilities
-      @other_users_availabilities = Availability.where.not(user: current_user)
-      @availability = Availability.new(user: current_user)
+      redirect_to availabilities_path
     end
   end
 

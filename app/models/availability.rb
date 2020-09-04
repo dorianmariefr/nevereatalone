@@ -7,6 +7,9 @@ class Availability < ApplicationRecord
   validates :starts_at, presence: true
   validates :location, presence: true
 
+  scope :past, -> { where("starts_at < ?", Time.zone.now) }
+  scope :recent, -> { where("starts_at >= ?", Time.zone.now) }
+
   after_initialize do
     if Time.zone.now > Time.zone.now.beginning_of_day + 19.hours
       self.starts_at ||= Time.zone.now.beginning_of_day + 1.day + 19.hours
@@ -27,6 +30,14 @@ class Availability < ApplicationRecord
 
   def conversation_users
     invitations.accepted.map(&:user) + [user]
+  end
+
+  def past?
+    starts_at < Time.zone.now
+  end
+
+  def recent?
+    !past?
   end
 
   def to_s

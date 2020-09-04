@@ -1,36 +1,22 @@
-- if current_user
-  .max-w-2xl.mx-auto.px-4
-    h1.text-lg.font-bold.mb-4 Ajouter une demande de rendez-vous
+.sm:hidden
+  = image_tag "background.jpg", class: "mb-4"
 
-    = render "availabilities/form", availability: @availability
+  h1.text-center.text-3xl.font-bold.m-4.mb-4
+    ' Trouves quelqu'un avec qui manger
 
-    h1.text-lg.font-bold.mb-4 Mes demandes de rendez-vous
+  p.text-center.text-xl.m-4.mb-8
+    ' Et peut-être te faire de nouveaux amis, ou recontrer un copain ou une copine
 
-    = render_or_none(@current_user_availabilities, none: "Aucune")
+  p.text-center
+    = link_to "S'inscrire", new_user_path, class: "button button--primary button--large"
 
-    h1.text-lg.font-bold.mb-4 Demandes de rendez-vous
-
-    = render_or_none(@other_users_availabilities, none: "Aucune")
-- else
-  .sm:hidden
-    = image_tag "background.jpg", class: "mb-4"
-
-    h1.text-center.text-3xl.font-bold.m-4.mb-4
+.hidden.sm:block
+  .min-h-screen.bg-cover.bg-center.pt-16(style="background-image: url(#{asset_path("background.jpg")})")
+    h1.text-center.text-5xl.max-w-md.mx-auto.text-white.font-bold.mb-4.text-shadow
       ' Trouves quelqu'un avec qui manger
 
-    p.text-center.text-xl.m-4.mb-8
+    p.text-center.text-2xl.max-w-md.mx-auto.text-white.mb-8.text-shadow
       ' Et peut-être te faire de nouveaux amis, ou recontrer un copain ou une copine
 
     p.text-center
       = link_to "S'inscrire", new_user_path, class: "button button--primary button--large"
-
-  .hidden.sm:block
-    .min-h-screen.bg-cover.bg-center.pt-16(style="background-image: url(#{asset_path("background.jpg")})")
-      h1.text-center.text-5xl.max-w-md.mx-auto.text-white.font-bold.mb-4.text-shadow
-        ' Trouves quelqu'un avec qui manger
-
-      p.text-center.text-2xl.max-w-md.mx-auto.text-white.mb-8.text-shadow
-        ' Et peut-être te faire de nouveaux amis, ou recontrer un copain ou une copine
-
-      p.text-center
-        = link_to "S'inscrire", new_user_path, class: "button button--primary button--large"

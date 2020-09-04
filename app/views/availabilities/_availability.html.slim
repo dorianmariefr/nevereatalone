@@ -16,20 +16,23 @@
     - if availability.details.present?
       p.mb-2.border-l-2.border-gray-600.pl-2.text-gray-600= availability.details
 
+    - if availability.past?
+      p.mb-2 Demande de rendez-vous expirée
+
     - if availability.user == current_user
-      = link_and_count_for(availability, availability.invitations.sent, one: "une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600 underline")
-      = link_and_count_for(availability, availability.invitations.accepted, one: "une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600 underline")
-      = link_and_count_for(availability, availability.invitations.declined, one: "une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600 underline")
+      = link_and_count_for(availability, availability.invitations.sent, one: "Une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600 underline")
+      = link_and_count_for(availability, availability.invitations.accepted, one: "Une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600 underline")
+      = link_and_count_for(availability, availability.invitations.declined, one: "Une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600 underline")
 
     - elsif availability.invitations.where(user: current_user).any?
       - invitation = availability.invitations.find_by(user: current_user)
       - if invitation.sent?
-        p.text-blue-600 demande de rejoindre envoyée
+        p.text-blue-600 Demande de rejoindre envoyée
       - elsif invitation.accepted?
-        p.text-green-600 demande de rejoindre acceptée
+        p.text-green-600 Demande de rejoindre acceptée
       - else
-        p.text-red-600 demande de rejoindre déclinée
-    - else
+        p.text-red-600 Demande de rejoindre déclinée
+    - elsif availability.recent?
       = form_for Invitation.new(availability: availability) do |f|
         = f.hidden_field :availability_id
         p= f.submit "demander à rejoindre", class: "button--primary"
