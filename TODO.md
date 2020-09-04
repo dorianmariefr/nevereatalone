@@ -1,9 +1,8 @@
 ### features
 
-- centers of interests of users
 - users list
 - search users by center of interest
-- invite user to an availability
+- invite user to an availability ?
 
 ### later
 
