@@ -14,5 +14,8 @@ Rails.application.routes.draw do
 
   get "auth/facebook/callback", to: "sessions#facebook"
 
+  get "privacy" => "pages#privacy"
+  get "terms" => "pages#terms"
+
   root to: "pages#home"
 end

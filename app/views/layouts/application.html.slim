@@ -20,7 +20,13 @@ html
       = render "layouts/desktop_navbar"
 
     - if flash[:alert].present?
-      .max-w-2xl.mx-auto.pb-4
-        p.text-center.text-red-600= flash[:alert]
+      .max-w-2xl.mx-auto.px-4
+        p.text-center.text-red-600.mb-4= flash[:alert]
 
     = yield
+
+    hr.mb-4
+
+    .max-w-2xl.mx-auto.px-4
+      p.mb-4= link_to "Politique de confidentialité", privacy_path, class: "underline"
+      p.mb-4= link_to "Conditions générale d'utilitisation", terms_path, class: "underline"

@@ -8,4 +8,10 @@ class PagesController < ApplicationController
       @availability = Availability.new(user: current_user)
     end
   end
+
+  def privacy
+  end
+
+  def terms
+  end
 end
