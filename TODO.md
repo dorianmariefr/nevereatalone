@@ -1,6 +1,5 @@
 ### features
 
-- send email when someone post a comment on my profil
 - admin log in as any user
 - google analytics
 - centers of interests of users

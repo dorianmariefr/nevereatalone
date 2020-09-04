@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment.from_user = current_user
 
     if @comment.save
+      CommentMailer.with(comment: @comment).received_comment_email.deliver_now
       redirect_to @comment.to_user
     else
       redirect_to @comment.to_user, alert: @comment.full_error_messages
