@@ -13,10 +13,13 @@
         => fa("columns")
         ' Demandes de rendez-vous
 
+      = link_to users_path, class: "block border-black border-t p-4" do
+          => fa("users")
+          ' Personnes
+
       = link_to current_user, class: "block border-black border-t p-4" do
         => fa("user")
         ' Profil
-
       = link_to session_path, method: "delete", class: "block border-black border-t p-4" do
         => fa("sign-out-alt")
         ' Se déconnecter

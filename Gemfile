@@ -24,6 +24,7 @@ gem "activeadmin"
 gem "paper_trail"
 gem "bugsnag"
 gem "sprockets", "3.7.2" # https://github.com/sass/sassc-rails/issues/122
+gem "mini_magick"
 
 group :development do
   gem "capistrano"

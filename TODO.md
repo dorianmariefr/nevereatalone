@@ -1,8 +1,8 @@
 ### features
 
-- users list
-- search users by center of interest
+- search users by center of interest (interest pages, clickable interest)
 - invite user to an availability ?
+- reminder on dashboard to add image, bio and center of interests
 
 ### later
 

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   load_and_authorize_resource find_by: :slug
 
   def index
-    redirect_to new_user_path
   end
 
   def show

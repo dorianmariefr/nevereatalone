@@ -9,16 +9,19 @@
 
       div
         = link_to availabilities_path, class: "mr-4" do
-            => fa("columns")
-            ' Demandes
+          => fa("columns")
+          ' Demandes
+
+        = link_to users_path, class: "mr-4" do
+          => fa("users")
+          ' Personnes
 
         = link_to current_user, class: "mr-4" do
-            => fa("user")
-            ' Profil
+          => fa("user")
+          ' Profil
 
-        = link_to session_path, method: "delete" do
-            => fa("sign-out-alt")
-            ' Se déconnecter
+        = link_to session_path, class: "mr-4" do
+          = fa("sign-out-alt")
   - else
     / guest on desktop
     .flex.justify-between.items-center.p-4
