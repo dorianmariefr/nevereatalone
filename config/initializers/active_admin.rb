@@ -15,9 +15,7 @@ ActiveAdmin.setup do |config|
   ]
 
   config.localize_format = :long
-end
 
-ActiveSupport.on_load(:active_admin) do
   ActiveAdmin::ResourceController.class_eval do
     def find_resource
       if resource_class.is_a?(FriendlyId)

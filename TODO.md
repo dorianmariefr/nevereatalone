@@ -1,6 +1,5 @@
 ### features
 
-- admin log in as any user
 - google analytics
 - centers of interests of users
 - users list
