@@ -11,7 +11,7 @@ html
       javascript:
         Bugsnag.start({ apiKey: '#{ENV.fetch("BUGSNAG_JS_API_KEY")}' })
 
-      script(async src="https://www.googletagmanager.com/gtag/js?id=UA-176524378-4")
+      script(async src="https://www.googletagmanager.com/gtag/js?id=#{ENV.fetch("GOOGLE_TRACKING_ID")}")
       javascript:
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
