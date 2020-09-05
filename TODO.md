@@ -1,7 +1,3 @@
-### bugs
-
-- fix production css
-
 ### features
 
 - move reminders down
