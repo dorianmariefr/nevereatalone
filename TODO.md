@@ -1,7 +1,7 @@
 ### features
 
-- current and past availabilities on user page
 - round images
+- register button overflow on mobile
 
 ### later
 

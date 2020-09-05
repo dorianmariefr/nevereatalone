@@ -39,3 +39,11 @@
     h1.text-lg.font-bold.mb-4 Ajouter un commentaire
 
     = render "comments/form", user: @user
+
+  h1.text-lg.font-bold.mb-4 Demandes de rendez-vous
+
+  = render_or_none(@user.availabilities.recent, none: "Aucune")
+
+  h1.text-lg.font-bold.mb-4 Précédentes demandes de rendez-vous
+
+  = render_or_none(@user.availabilities.past, none: "Aucune")
