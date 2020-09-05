@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
+  before_action :redirect_to_main_domain
   before_action :set_paper_trail_whodunnit
   check_authorization unless: :admin_controller?
 
@@ -29,5 +30,11 @@ class ApplicationController < ActionController::Base
 
   def admin_controller?
     request.path.starts_with?("/admin")
+  end
+
+  def redirect_to_main_domain
+    if request.host_with_port != ENV.fetch("HOST")
+      redirect_to "#{request.protocol}#{ENV.fetch("HOST")}#{request.fullpath}"
+    end
   end
 end
