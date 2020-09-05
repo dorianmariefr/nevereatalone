@@ -1,8 +1,7 @@
 ### features
 
-- my direct message on the right
+- migrate to new domain
 
 ### later
 
-- migrate to new domain
 - translate to english
