@@ -1,7 +1,7 @@
 .max-w-2xl.mx-auto.px-4
   - if !current_user.image.attached? || current_user.bio.blank? || current_user.interests.size < 3
     .bg-gray-300.p-4.mb-4.rounded.base
-      p Tu peux compléter ton profil en
+      p Tu peux compléter ton profil en:
       ul
         - if !current_user.image.attached?
           li= link_to "Ajoutant une image", [:edit, current_user], class: "underline"
