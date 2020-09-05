@@ -3,8 +3,12 @@
     = simple_format(direct_message.content)
 
   p.mb-4.text-right
+    span.text-gray-600=> l(direct_message.created_at, format: "Le %A %e %B à %kh%M")
     = link_to "supprimer", direct_message, method: :delete, class: "text-red-600 underline"
 
 - else
   .pl-2.border-l-2.border-gray-500.mb-4.base
     = simple_format(direct_message.content)
+
+  p.mb-4.text-gray-600
+    => l(direct_message.created_at, format: "Le %A %e %B à %kh%M")
