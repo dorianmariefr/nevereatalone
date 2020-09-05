@@ -1,0 +1,111 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// inputs
+
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="file"],
+select,
+textarea,
+.button {
+  border: 1px solid #777;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+input[type="submit"],
+.button {
+  border: none;
+  background-color: #ccc;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken(#ccc, 10%);
+  }
+
+  &:focus {
+    background-color: darken(#ccc, 20%);
+  }
+
+  &.button--primary {
+    background-color: #ecc94b;
+
+    &:hover {
+      background-color: darken(#ecc94b, 10%)
+    }
+
+    &:focus {
+      background-color: darken(#ecc94b, 20%)
+    }
+  }
+
+  &.button--facebook {
+    background-color: #4267B2;
+    color: white;
+
+    &:hover {
+      background-color: darken(#4267B2, 10%)
+    }
+
+    &:focus {
+      background-color: darken(#4267B2, 20%)
+    }
+  }
+
+  &.button--medium {
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    height: auto;
+  }
+
+  &.button--large {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    height: auto;
+  }
+}
+
+// utilities
+
+.text-shadow {
+  text-shadow: 0 0 10px black;
+}
+
+// rails
+
+.field_with_errors {
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    border-color: #e53e3e;
+  }
+}
+
+// base
+
+.base {
+  h1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    margin-left: 1rem;
+    list-style: disc;
+    margin-bottom: 1rem
+  }
+}
