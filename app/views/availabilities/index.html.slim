@@ -6,7 +6,7 @@
         - if !current_user.image.attached?
           li= link_to "Ajoutant une image", [:edit, current_user], class: "underline"
         - if current_user.bio.blank?
-          li= link_to "Écrivant à propos to de toi", [:edit, current_user], class: "underline"
+          li= link_to "Écrivant à propos de toi", [:edit, current_user], class: "underline"
         - if current_user.interests.size < 3
           li= link_to "Ajoutant au moins 3 centre d'intérêts", current_user, class: "underline"
 
