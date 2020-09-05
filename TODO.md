@@ -1,7 +1,7 @@
 ### features
 
-- round images
 - register button overflow on mobile
+- my direct message on the right
 
 ### later
 

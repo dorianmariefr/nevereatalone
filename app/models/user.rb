@@ -28,6 +28,16 @@ class User < ApplicationRecord
     slug.nil? || first_name_changed? || last_name_changed?
   end
 
+  def square_image
+    image.variant(
+      combine_options: {
+        resize: '150x150^',
+        extent: '150x150',
+        gravity: 'Center'
+      }
+    )
+  end
+
   def to_s
     full_name
   end

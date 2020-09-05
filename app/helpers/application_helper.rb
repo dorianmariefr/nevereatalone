@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def user_image_for(user, **options)
     if user.image.attached?
-      image_tag(user.image.variant(resize: "150x150"), **options)
+      image_tag(user.square_image, **options)
     else
       image_tag("user.svg", **options)
     end
