@@ -10,6 +10,11 @@
     ' à
     = @availability.location
 
+  - if @availability.vegetarian?
+    p.mb-4.text-center.text-green-600
+      => fa("leaf", class: "border border-green-600 p-2 rounded-full bg-white")
+      ' Végétarien
+
   - if @availability.details.present?
     p.text-center.mb-4.text-gray-600= @availability.details
 

@@ -12,4 +12,8 @@
     span.text-gray-600() (optionel)
     = f.text_field :details, placeholder: "Pizza, sushi, chez moi, etc.", class: "w-full"
 
+  p.mb-4
+    ' Est-ce que tu veux manger végétarien ?
+    = yes_no(:vegetarian, f: f)
+
   p.mb-4= f.submit "Ajouter"

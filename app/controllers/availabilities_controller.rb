@@ -31,6 +31,11 @@ class AvailabilitiesController < ApplicationController
   private
 
   def availability_params
-    params.require(:availability).permit(:starts_at, :location, :details)
+    params.require(:availability).permit(
+      :starts_at,
+      :location,
+      :details,
+      :vegetarian,
+    )
   end
 end
