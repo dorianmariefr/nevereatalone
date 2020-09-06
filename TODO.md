@@ -1,8 +1,8 @@
 ### features
 
-- move reminders down
 - add to google
 - vegetarian option
+- invite others to availability
 - invited/split/invites
 
 ### later
