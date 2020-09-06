@@ -1,6 +1,5 @@
 module.exports = {
   purge: {
-    enabled: true,
     content: [
       './app/views/**/*.html.slim',
       './app/helpers/**/*.rb',

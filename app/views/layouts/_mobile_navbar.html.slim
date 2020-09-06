@@ -8,7 +8,7 @@
       = link_to "#", data: { action: "toggle#toggle" } do
         = fa("bars", class: "text-3xl")
 
-    .absolute.hidden.bg-white.w-full.border-black.border-b(data-target="toggle.target")
+    .absolute.hidden.bg-white.w-full.border-black.border-b.z-10(data-target="toggle.target")
       = link_to availabilities_path, class: "block border-black border-t p-4" do
         => fa("columns")
         ' Demandes de rendez-vous

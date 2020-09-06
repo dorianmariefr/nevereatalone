@@ -8,12 +8,26 @@ module ApplicationHelper
   end
 
   def user_image_for(user, **options)
-    options[:class] ||= ""
-    options[:class] += " user-image-vegetarian" if user.vegetarian?
-    if user.image.attached?
-      image_tag(user.square_image, **options)
-    else
-      image_tag("user.svg", **options)
+    content_tag(:div, class: "relative z-0") do
+      if user.image.attached?
+        image = image_tag(user.square_image, **options)
+      else
+        image = image_tag("user.svg", **options)
+      end
+
+      if user.vegetarian?
+        safe_join([
+          image,
+          fa(
+            "leaf",
+            class: "absolute bottom-0 left-1/2 " +
+            "text-green-600 bg-white border-green-600 " +
+            "rounded-full p-2 transform -translate-x-1/2"
+          )
+        ])
+      else
+        image
+      end
     end
   end
 

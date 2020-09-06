@@ -14,6 +14,7 @@ textarea,
   border: 1px solid #777;
   padding: 0.5rem;
   border-radius: 5px;
+  max-width: 100%;
 }
 
 input[type="submit"],
@@ -74,6 +75,10 @@ input[type="submit"],
   text-shadow: 0 0 10px black;
 }
 
+.left-1\/2 {
+  left: 50%;
+}
+
 // rails
 
 .field_with_errors {
@@ -108,10 +113,4 @@ input[type="submit"],
     list-style: disc;
     margin-bottom: 1rem
   }
-}
-
-// custom
-
-.user-image-vegetarian {
-  border: 10px solid green;
 }
