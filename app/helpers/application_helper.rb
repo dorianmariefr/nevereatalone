@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def user_image_for(user, **options)
-    content_tag(:div, class: "relative z-0") do
+    content_tag(:div, class: "relative z-0 inline-block") do
       if user.image.attached?
         image = image_tag(user.square_image, **options)
       else
