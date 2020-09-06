@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery prepend: true, with: :exception
+
+  check_authorization unless: :admin_controller?
+
   helper_method :current_user
 
   before_action :redirect_to_main_domain
   before_action :set_paper_trail_whodunnit
-  check_authorization unless: :admin_controller?
 
   rescue_from CanCan::AccessDenied do
     redirect_to root_path, alert: "Tu ne peux pas faire ça"

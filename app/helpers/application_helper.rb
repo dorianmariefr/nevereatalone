@@ -8,6 +8,8 @@ module ApplicationHelper
   end
 
   def user_image_for(user, **options)
+    options[:class] ||= ""
+    options[:class] += " user-image-vegetarian" if user.vegetarian?
     if user.image.attached?
       image_tag(user.square_image, **options)
     else

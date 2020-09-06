@@ -8,7 +8,7 @@
       ' Connexion avec ton compte
       b Facebook
 
-    p.text-center
+    p.text-center.mb-4
       = link_to "Facebook", "/auth/facebook", class: "button button--medium button--facebook"
 
   p.text-center.mb-4 ou
@@ -20,13 +20,13 @@
       ' et ton mot de passe
 
     = form_for :session, url: session_path do |f|
-      p
+      p.mb-4
         = f.label :email, "Adresse e-mail", class: "block"
-        = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full mb-4", value: params.dig(:session, :email)
+        = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full", value: params.dig(:session, :email)
 
-      p
+      p.mb-4
         = f.label :password, "Mot de passe", class: "block"
-        = f.password_field :password, placeholder: "Mot de passe", class: "w-full mb-4"
+        = f.password_field :password, placeholder: "Mot de passe", class: "w-full"
 
       p.text-center= f.submit "Se connecter", class: "button button--primary button--medium"
 

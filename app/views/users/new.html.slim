@@ -8,7 +8,7 @@
       ' inscription avec ton compte
       b Facebook
 
-    p.text-center
+    p.text-center.mb-4
       = link_to "Facebook", "/auth/facebook", class: "button button--medium button--facebook"
 
   p.mb-4.text-center ou
@@ -19,23 +19,23 @@
       b e-mail
 
     = form_for @user do |f|
-      p
+      p.mb-4
         = f.label :first_name, "Prénom", class: "block"
-        = f.text_field :first_name, placeholder: "Prénom", class: "w-full mb-4"
+        = f.text_field :first_name, placeholder: "Prénom", class: "w-full"
 
-      p
+      p.mb-4
         = f.label :last_name, "Nom", class: "block"
-        = f.text_field :last_name, placeholder: "Nom", class: "w-full mb-4"
+        = f.text_field :last_name, placeholder: "Nom", class: "w-full"
 
-      p
+      p.mb-4
         = f.label :email, "Adresse e-mail", class: "block"
-        = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full mb-4"
+        = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full"
 
-      p
+      p.mb-4
         = f.label :password, "Mot de passe", class: "block"
-        = f.password_field :password, placeholder: "Mot de passe", class: "w-full mb-4"
+        = f.password_field :password, placeholder: "Mot de passe", class: "w-full"
 
-      p.text-center= f.submit "S'inscrire", class: "button button--primary button--medium"
+      p.text-center.mb-4= f.submit "S'inscrire", class: "button button--primary button--medium"
 
   p.mb-4.text-center.text-gray-600 Tu as déjà un compte ?
 

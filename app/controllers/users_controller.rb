@@ -48,7 +48,8 @@ class UsersController < ApplicationController
       :last_name,
       :password,
       :image,
-      :bio
+      :bio,
+      :vegetarian,
     )
   end
 end
