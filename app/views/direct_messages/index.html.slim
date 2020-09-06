@@ -14,8 +14,14 @@
       p.mb-4= f.submit "Envoyer"
   - else
     - @users.each do |user|
-      p.mb-4
-        => link_to user.full_name, direct_messages_path(user_id: user.id), class: "underline"
-        | (
-        = count_for(DirectMessage.between(user, current_user), zero: "aucun message", one: "un message", other: "messages")
-        ' )
+      .flex.mb-4.bg-gray-300.rounded
+        .p-4
+          = link_to direct_messages_path(user_id: user.id) do
+            = user_image_for(user, class: "w-16 rounded-full inline-block")
+        .p-4
+          p.mb-4=> link_to user.full_name, direct_messages_path(user_id: user.id), class: "underline"
+          p.mb-4
+            = link_to direct_messages_path(user_id: user.id), class: "underline" do
+              | (
+              = count_for(DirectMessage.between(user, current_user), zero: "aucun message", one: "un message", other: "messages")
+              ' )

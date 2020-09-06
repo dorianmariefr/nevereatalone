@@ -4,6 +4,7 @@
 - invited/split/invites
 - add day of week to day input (dimanche 6, lundi 7, ...)
 - edit availabilities ?
+- restrict message notifications
 
 ### later
 

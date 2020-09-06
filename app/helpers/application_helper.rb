@@ -16,15 +16,19 @@ module ApplicationHelper
       end
 
       if user.vegetarian?
-        safe_join([
-          image,
-          fa(
-            "leaf",
-            class: "absolute bottom-0 left-1/2 " +
-            "text-green-600 bg-white border-green-600 " +
-            "rounded-full p-2 transform -translate-x-1/2"
-          )
-        ])
+        classes = "absolute bottom-0 left-1/2 "
+        classes += "text-green-600 bg-white border-green-600 border "
+        classes += "rounded-full transform -translate-x-1/2 "
+
+        if options[:class].to_s.include?("w-32")
+          classes += "p-2"
+        elsif options[:class].to_s.include?("w-16")
+          classes += "text-sm p-1"
+        else
+          classes += "text-xs p-1"
+        end
+
+        safe_join([image, fa("leaf", class: classes)])
       else
         image
       end

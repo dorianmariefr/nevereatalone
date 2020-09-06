@@ -1,7 +1,7 @@
 .max-w-2xl.mx-auto.px-4
   .text-center.mb-4
     = link_to @availability.user do
-      => user_image_for(@availability.user, class: "w-12 rounded-full inline-block")
+      => user_image_for(@availability.user, class: "w-32 rounded-full inline-block")
 
   .text-center.mb-4= link_to @availability.user.full_name, @availability.user, class: "underline"
 
