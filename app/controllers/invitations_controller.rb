@@ -1,6 +1,10 @@
 class InvitationsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    redirect_to root_path
+  end
+
   def create
     @invitation.user = current_user
     @invitation.status = "sent"
