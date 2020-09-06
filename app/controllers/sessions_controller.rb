@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     email = auth_hash["info"]["email"]
     image_url = auth_hash["info"]["image"]
     name = auth_hash["info"]["name"]
-    first_name, last_name = name.split(" ", 2)
+    first_name = name.split.first
 
     @user = User.find_by(facebook_id: uid)
     @user ||= User.find_by(email: email)
@@ -45,7 +45,6 @@ class SessionsController < ApplicationController
       facebook_id: uid,
       email: email,
       first_name: first_name,
-      last_name: last_name,
       password: SecureRandom.hex
     )
 

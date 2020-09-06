@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   extend FriendlyId
 
-  friendly_id :full_name, use: :slugged
+  friendly_id :first_name, use: :slugged
 
   has_secure_password
 
@@ -18,14 +18,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
-  validates :last_name, presence: true
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
 
   def should_generate_new_friendly_id?
-    slug.nil? || first_name_changed? || last_name_changed?
+    slug.nil? || first_name_changed?
   end
 
   def square_image
@@ -39,6 +34,6 @@ class User < ApplicationRecord
   end
 
   def to_s
-    full_name
+    first_name
   end
 end

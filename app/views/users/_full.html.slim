@@ -3,7 +3,7 @@
     = link_to user do
       = user_image_for(user, class: "w-16 rounded-full inline-block")
 
-  p.mb-4= link_to user.full_name, user, class: "underline"
+  p.mb-4= link_to user.first_name, user, class: "underline"
 
   - if user.bio.present?
     .text-gray-600.base= simple_format(user.bio)

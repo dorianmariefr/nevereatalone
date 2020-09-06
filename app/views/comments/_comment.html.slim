@@ -6,7 +6,7 @@
   = simple_format(comment.content)
 
 p.mb-4
-  => link_to comment.from_user.full_name, comment.from_user, class: "underline"
+  => link_to comment.from_user.first_name, comment.from_user, class: "underline"
 
   - if can? :destroy, comment
     = link_to "supprimer", comment, method: :delete, class: "text-red-600 underline"

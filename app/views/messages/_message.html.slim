@@ -2,7 +2,7 @@
   = simple_format(message.content)
 
 p.mb-4
-  => link_to message.user.full_name, message.user, class: "underline"
+  => link_to message.user.first_name, message.user, class: "underline"
   - if can? :destroy, message
     = link_to "supprimer", message, method: :delete, class: "text-red-600 underline"
 

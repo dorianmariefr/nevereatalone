@@ -4,7 +4,7 @@
       = link_to invitation.user do
         => user_image_for(invitation.user, class: "w-16 rounded-full inline-block")
 
-    .text-center= link_to invitation.user.full_name, invitation.user, class: "underline"
+    .text-center= link_to invitation.user.first_name, invitation.user, class: "underline"
 
   .p-4
     - if invitation.sent?

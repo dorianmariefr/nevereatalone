@@ -1,9 +1,9 @@
-- title @user.full_name
+- title @user.first_name
 
 .max-w-2xl.mx-auto.px-4
   .mb-4.text-center=> user_image_for(@user, class: "w-32 rounded-full inline-block")
 
-  p.mb-4.text-center= @user.full_name
+  p.mb-4.text-center= @user.first_name
 
   - if @user.bio.present?
     .text-center.base.text-gray-600= simple_format(@user.bio)

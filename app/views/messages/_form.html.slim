@@ -10,10 +10,10 @@
 
     p.mb-4.text-gray-600 La ou les prochaines personnes que tu accepteras veront ce message
   - elsif users.size == 1
-    p.mb-4.text-gray-600= "#{users.first.full_name} va reçevoir ce message"
+    p.mb-4.text-gray-600= "#{users.first.first_name} va reçevoir ce message"
   - else
     p.mb-4.text-gray-600
-      => users.map(&:full_name).to_sentence
+      => users.map(&:first_name).to_sentence
       ' vont reçevoir ce message
 
   p.mb-4= f.submit "envoyer"

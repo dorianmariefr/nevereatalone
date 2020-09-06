@@ -1,6 +1,6 @@
-Tu as reçu une nouvelle demande de rejoindre un de tes rendez-vous de la part de <%= @from.full_name %>.
+Tu as reçu une nouvelle demande de rejoindre un de tes rendez-vous de la part de <%= @from.first_name %>.
 
-Demande faite par <%= @from.full_name %>: <%= url_for(@from) %>
+Demande faite par <%= @from.first_name %>: <%= url_for(@from) %>
 
 Rendez-vous <%= @availability.to_s %>: <%= url_for(@availability) %>
 

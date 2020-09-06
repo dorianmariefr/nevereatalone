@@ -3,7 +3,7 @@
     = link_to @availability.user do
       => user_image_for(@availability.user, class: "w-32 rounded-full inline-block")
 
-  .text-center.mb-4= link_to @availability.user.full_name, @availability.user, class: "underline"
+  .text-center.mb-4= link_to @availability.user.first_name, @availability.user, class: "underline"
 
   h1.text-lg.font-bold.mb-4.text-center
     => l(@availability.starts_at, format: "Le %A %e %B à %kh%M")

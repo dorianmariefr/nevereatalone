@@ -19,7 +19,7 @@
           = link_to direct_messages_path(user_id: user.id) do
             = user_image_for(user, class: "w-16 rounded-full inline-block")
         .p-4
-          p.mb-4=> link_to user.full_name, direct_messages_path(user_id: user.id), class: "underline"
+          p.mb-4=> link_to user.first_name, direct_messages_path(user_id: user.id), class: "underline"
           p.mb-4
             = link_to direct_messages_path(user_id: user.id), class: "underline" do
               | (
