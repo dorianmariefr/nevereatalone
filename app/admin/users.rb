@@ -1,4 +1,10 @@
 ActiveAdmin.register User do
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
+
   member_action :sign_in_as, method: :post do
     session[:user_id] = resource.id
     redirect_to root_path
