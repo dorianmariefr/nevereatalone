@@ -8,7 +8,7 @@
   - if @user.bio.present?
     .text-center.base.text-gray-600= simple_format(@user.bio)
 
-  - if can? :update, @user
+  - if @user == current_user
     p.mb-4.text-center
       = link_to "Se déconnecter", session_path, method: :delete, class: "underline"
 
@@ -25,7 +25,7 @@
 
   = render_or_none(@user.interests)
 
-  - if can? :update, @user
+  - if @user == current_user
     = form_for Interest.new do |f|
       p.mb-4
         => f.text_field :content, placeholder: "Courir, Voyager, etc..."

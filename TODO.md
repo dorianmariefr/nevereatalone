@@ -1,6 +1,5 @@
 ### features
 
-- remove last names
 - invite others to availability
 - invited/split/invites
 - add day of week to day input (dimanche 6, lundi 7, ...)
