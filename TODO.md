@@ -9,9 +9,21 @@
 - home image with more people
 - time intervals when creating availability
 - more examples of details (and except) (pique-nique)
+- conditions of availability (vegetarian, vegan, allergies, ...)
+- redirect to availability after create
+- title for availability page
+- do not send message when alone in an availability
+- add interests with comma
+- edit bio link
+- show image preview when uploading picture
+- add comments on own profile
+
+### show to
+
 - damian
 - benjamin
 - xavier
+- sarah
 - family
 
 ### later
