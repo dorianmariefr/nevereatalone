@@ -1,8 +1,6 @@
 ### features
 
-- invited/split/invites
-- add day of week to day input (dimanche 6, lundi 7, ...)
-- edit availabilities ?
+- edit availabilities
 - restrict message notifications
 - validate email addresses
 - home image with more people
@@ -16,7 +14,6 @@
 - edit bio link
 - show image preview when uploading picture
 - add comments on own profile
-- edit availabilities
 - notify on availability datetime change
 
 ### show to
@@ -36,3 +33,7 @@
     - store timezone ?
   - translate all text to english
   - inevereatalone.com
+
+### maybe later
+
+- invited/split/invites
