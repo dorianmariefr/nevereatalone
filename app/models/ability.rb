@@ -20,9 +20,19 @@ class Ability
       can :accept, Invitation, to_user_id: user.id
       can :decline, Invitation, to_user_id: user.id
 
-      can :manage, Message, availability: { user_id: user.id }
+      # can send messages and delete own messages in own availability
+      can :manage, Message, availability: { user_id: user.id }, user_id: user.id
+
+      # can send messages and delete own messages in an availability
+      # with accepted invitation
       can :manage, Message do |message|
-        message.availability.invitations.accepted.where(user_id: user.id).any?
+        next false if message.user_id != user.id
+        message.availability.invitations.accepted.where(from_user: user.id).any?
+      end
+
+      can :manage, Message do |message|
+        next false if message.user_id != user.id
+        message.availability.invitations.accepted.where(to_user: user.id).any?
       end
 
       can :create, Comment
