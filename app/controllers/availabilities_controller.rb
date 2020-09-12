@@ -16,7 +16,7 @@ class AvailabilitiesController < ApplicationController
     @availability.user = current_user
 
     if @availability.save
-      redirect_to root_path
+      redirect_to @availability
     else
       redirect_to root_path, alert: @availability.full_error_messages
     end
@@ -26,6 +26,17 @@ class AvailabilitiesController < ApplicationController
     @availability.destroy!
 
     redirect_to root_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @availability.update(availability_params)
+      redirect_to @availability
+    else
+      redirect_to root_path, alert: @availability.full_error_messages
+    end
   end
 
   private

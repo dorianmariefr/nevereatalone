@@ -22,7 +22,8 @@
     p.text-center.mb-4 Demande de rendez-vous expirée
 
   - if @availability.user == current_user
-    p.mb-4.text-center= link_to "supprimer ce rendez-vous", @availability, method: :delete, class: "text-red-600 underline"
+    p.mb-4.text-center= link_to "modifier ce rendez-vous", [:edit, @availability], class: "underline"
+    p.mb-4.text-center.text-red-600= link_to "supprimer ce rendez-vous", @availability, method: :delete, class: "underline"
     h1.text-lg.font-bold.mb-4 Demandes de rejoindre ce rendez-vous
     = render_or_none @availability.invitations.where(to_user: @availability.user), none: "Aucune"
     h1.text-lg.font-bold.mb-4 Invitations à rejoindre ce rendez-vous

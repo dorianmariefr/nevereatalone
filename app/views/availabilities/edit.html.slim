@@ -1,0 +1,6 @@
+- title "Modifier le rendez #{@availability}"
+
+.max-w-2xl.mx-auto.px-4
+  h1.text-lg.font-bold.mb-4= "Modifier le rendez #{@availability}"
+
+  = render "availabilities/form", availability: @availability, submit: "Mettre à jour"

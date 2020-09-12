@@ -1,6 +1,6 @@
 ### features
 
-- edit availabilities
+- notify on availability datetime change
 - restrict message notifications
 - validate email addresses
 - home image with more people
@@ -14,7 +14,6 @@
 - edit bio link
 - show image preview when uploading picture
 - add comments on own profile
-- notify on availability datetime change
 
 ### show to
 
