@@ -28,6 +28,19 @@ class Availability < ApplicationRecord
     end
   end
 
+  after_save do
+    if saved_change_to_starts_at?
+      conversation_users.without(user).each do |user|
+        AvailabilityMailer.with(
+          availability: self,
+          old_starts_at: saved_changes["starts_at"].first,
+          new_starts_at: saved_changes["starts_at"].second,
+          to: user,
+        ).starts_at_changed_email.deliver_now
+      end
+    end
+  end
+
   def conversation_users
     invitations.accepted.map(&:user) + [user]
   end
