@@ -25,19 +25,32 @@
       p.mb-2 Demande de rendez-vous expirée
 
     - if availability.user == current_user
-      = link_and_count_for(availability, availability.invitations.sent, one: "Une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600 underline")
-      = link_and_count_for(availability, availability.invitations.accepted, one: "Une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600 underline")
-      = link_and_count_for(availability, availability.invitations.declined, one: "Une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600 underline")
+      = link_and_count_for(availability, availability.invitations.requested.sent, one: "Une demande en attente de réponse", other: "demandes en attente de réponse", class: "mb-2 text-blue-600 underline")
+      = link_and_count_for(availability, availability.invitations.requested.accepted, one: "Une demande acceptée", other: "demandes acceptées", class: "mb-2 text-green-600 underline")
+      = link_and_count_for(availability, availability.invitations.requested.declined, one: "Une demande déclinée", other: "demandes déclinées", class: "mb-2 text-red-600 underline")
+      = link_and_count_for(availability, availability.invitations.invited.sent, one: "Une invitation en attente de réponse", other: "invitations en attente de réponse", class: "mb-2 text-blue-600 underline")
+      = link_and_count_for(availability, availability.invitations.invited.accepted, one: "Une invitation acceptée", other: "invitations acceptées", class: "mb-2 text-green-600 underline")
+      = link_and_count_for(availability, availability.invitations.invited.declined, one: "Une invitation déclinée", other: "invitations déclinées", class: "mb-2 text-red-600 underline")
 
-    - elsif availability.invitations.where(user: current_user).any?
-      - invitation = availability.invitations.find_by(user: current_user)
+    - elsif invitation = availability.invitations.find_by(from_user: current_user)
       - if invitation.sent?
-        p.text-blue-600 Demande de rejoindre envoyée
+        p.text-blue-600.mb-2 Demande de rejoindre envoyée
       - elsif invitation.accepted?
-        p.text-green-600 Demande de rejoindre acceptée
+        p.text-green-600.mb-2 Demande de rejoindre acceptée
       - else
-        p.text-red-600 Demande de rejoindre déclinée
+        p.text-red-600.mb-2 Demande de rejoindre déclinée
+    - elsif invitation = availability.invitations.find_by(to_user: current_user)
+      - if invitation.sent?
+        p.text-blue-600.mb-2 Tu as été invité
+        p.mb-2
+          => link_to "Refuser", [invitation, :decline], method: :post, class: "button inline-block"
+          = link_to "Accepter", [invitation, :accept], method: :post, class: "button button--primary inline-block"
+
+      - elsif invitation.accepted?
+        p.text-green-600.mb-2 Invitation acceptée
+      - else
+        p.text-red-600.mb-2 Invitation déclinée
     - elsif availability.recent?
       = form_for Invitation.new(availability: availability) do |f|
         = f.hidden_field :availability_id
-        p= f.submit "demander à rejoindre", class: "button--primary"
+        p.mb-2= f.submit "demander à rejoindre", class: "button--primary"

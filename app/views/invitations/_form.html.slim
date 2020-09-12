@@ -1,0 +1,7 @@
+= form_for Invitation.new(availability: availability) do |f|
+  = f.hidden_field :availability_id
+
+  p.mb-4
+    => f.label :to_user, "Qui souhaites-tu inviter?"
+    => f.select :to_user_id, options_from_collection_for_select(User.all.without(current_user), :id, :to_s)
+    => f.submit "Envoyer une invitation"

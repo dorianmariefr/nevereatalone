@@ -8,13 +8,14 @@ class User < ApplicationRecord
   has_one_attached :image
 
   has_many :availabilities, dependent: :destroy
-  has_many :invitations, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :interests, dependent: :destroy
   has_many :received_comments, class_name: "Comment", foreign_key: :to_user_id, dependent: :destroy
   has_many :sent_comments, class_name: "Comment", foreign_key: :from_user_id, dependent: :destroy
   has_many :received_direct_messages, class_name: "DirectMessage", foreign_key: :to_user_id, dependent: :destroy
   has_many :sent_direct_messages, class_name: "DirectMessage", foreign_key: :from_user_id, dependent: :destroy
+  has_many :received_invitations, class_name: "Invitation", foreign_key: :to_user_id, dependent: :destroy
+  has_many :sent_invitations, class_name: "Invitation", foreign_key: :from_user_id, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true

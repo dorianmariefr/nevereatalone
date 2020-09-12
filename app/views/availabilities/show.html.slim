@@ -23,18 +23,33 @@
 
   - if @availability.user == current_user
     p.mb-4.text-center= link_to "supprimer ce rendez-vous", @availability, method: :delete, class: "text-red-600 underline"
-    h1.text-lg.font-bold.mb-4.text-center Demandes de rejoindre ce rendez-vous
-    = render_or_none @availability.invitations, none: "Aucune", class: "text-center"
+    h1.text-lg.font-bold.mb-4 Demandes de rejoindre ce rendez-vous
+    = render_or_none @availability.invitations.where(to_user: @availability.user), none: "Aucune"
+    h1.text-lg.font-bold.mb-4 Invitations à rejoindre ce rendez-vous
+    = render_or_none @availability.invitations.where(from_user: @availability.user), none: "Aucune"
+    h1.text-lg.font-bold.mb-4 Inviter quelqu'un à ce rendez-vous
+    = render "invitations/form", availability: @availability
     = render "messages/messages", availability: @availability
-  - elsif @availability.invitations.where(user: current_user).any?
-    - invitation = @availability.invitations.find_by(user: current_user)
+  - elsif invitation = @availability.invitations.find_by(from_user: current_user)
     - if invitation.sent?
-      p.text-blue-600.text-center.mb-4 demande de rejoindre envoyée
+      p.text-blue-600.text-center.mb-4 Demande de rejoindre envoyée
     - elsif invitation.accepted?
-      p.text-green-600.text-center.mb-4 demande de rejoindre acceptée
+      p.text-green-600.text-center.mb-4 Demande de rejoindre acceptée
       = render "messages/messages", availability: @availability
     - else
-      p.text-red-600.text-center.mb-4 demande de rejoindre déclinée
+      p.text-red-600.text-center.mb-4 Demande de rejoindre déclinée
+  - elsif invitation = @availability.invitations.find_by(to_user: current_user)
+    - if invitation.sent?
+      p.text-blue-600.text-center.mb-4 Tu as été invité
+      p.mb-4.text-center
+        => link_to "Refuser", [invitation, :decline], method: :post, class: "button inline-block"
+        = link_to "Accepter", [invitation, :accept], method: :post, class: "button button--primary inline-block"
+
+    - elsif invitation.accepted?
+      p.text-green-600.text-center.mb-4 Invitation acceptée
+      = render "messages/messages", availability: @availability
+    - else
+      p.text-red-600.text-center.mb-4 Invitation déclinée
   - elsif @availability.recent?
     = form_for Invitation.new(availability: @availability) do |f|
       = f.hidden_field :availability_id

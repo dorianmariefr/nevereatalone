@@ -7,11 +7,24 @@
     .text-center= link_to invitation.user.first_name, invitation.user, class: "underline"
 
   .p-4
-    - if invitation.sent?
-      p
-        => link_to "Refuser", [invitation, :decline], method: :post, class: "button inline-block"
-        = link_to "Accepter", [invitation, :accept], method: :post, class: "button button--primary inline-block"
-    - elsif invitation.accepted?
-      p.text-green-600 Vous avez accepté la demande de rendez-vous
+    - if invitation.requested?
+      - if invitation.sent?
+        p.mb-4
+          => link_to "Refuser", [invitation, :decline], method: :post, class: "button inline-block"
+          = link_to "Accepter", [invitation, :accept], method: :post, class: "button button--primary inline-block"
+      - elsif invitation.accepted?
+        p.text-green-600.mb-4 Vous avez accepté la demande de rendez-vous
+      - else
+        p.text-red-600.mb-4 Vous avez refusé la demande de rendez-vous
     - else
-      p.text-red-600 Vous avez refusé la demande de rendez-vous
+      - if invitation.sent?
+        - if invitation.to_user == current_user
+          p.mb-4
+            => link_to "Refuser", [invitation, :decline], method: :post, class: "button inline-block"
+            = link_to "Accepter", [invitation, :accept], method: :post, class: "button button--primary inline-block"
+        - else
+          p.text-blue-600.mb-4 Invitation envoyée
+      - elsif invitation.accepted?
+        p.text-green-600.mb-4 Invitation acceptée
+      - else
+        p.text-red-600.mb-4 Invitation déclinée

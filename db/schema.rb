@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_191230) do
+ActiveRecord::Schema.define(version: 2020_09_11_215646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,14 +93,16 @@ ActiveRecord::Schema.define(version: 2020_09_06_191230) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "to_user_id", null: false
     t.bigint "availability_id", null: false
     t.string "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "from_user_id", null: false
+    t.index ["availability_id", "from_user_id", "to_user_id"], name: "unique_availability_from_and_to", unique: true
     t.index ["availability_id"], name: "index_invitations_on_availability_id"
-    t.index ["user_id", "availability_id"], name: "index_invitations_on_user_id_and_availability_id", unique: true
-    t.index ["user_id"], name: "index_invitations_on_user_id"
+    t.index ["from_user_id"], name: "index_invitations_on_from_user_id"
+    t.index ["to_user_id"], name: "index_invitations_on_to_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -147,7 +149,8 @@ ActiveRecord::Schema.define(version: 2020_09_06_191230) do
   add_foreign_key "direct_messages", "users", column: "to_user_id"
   add_foreign_key "interests", "users"
   add_foreign_key "invitations", "availabilities"
-  add_foreign_key "invitations", "users"
+  add_foreign_key "invitations", "users", column: "from_user_id"
+  add_foreign_key "invitations", "users", column: "to_user_id"
   add_foreign_key "messages", "availabilities"
   add_foreign_key "messages", "users"
 end

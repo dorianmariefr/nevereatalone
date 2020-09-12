@@ -17,8 +17,8 @@ class Ability
       can :manage, Availability, user_id: user.id
 
       can :create, Invitation
-      can :accept, Invitation, availability: { user_id: user.id }
-      can :decline, Invitation, availability: { user_id: user.id }
+      can :accept, Invitation, to_user_id: user.id
+      can :decline, Invitation, to_user_id: user.id
 
       can :manage, Message, availability: { user_id: user.id }
       can :manage, Message do |message|

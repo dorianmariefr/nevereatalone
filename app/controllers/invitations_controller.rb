@@ -6,7 +6,8 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitation.user = current_user
+    @invitation.from_user = current_user
+    @invitation.to_user ||= @invitation.availability&.user
     @invitation.status = "sent"
 
     if @invitation.save
@@ -33,6 +34,6 @@ class InvitationsController < ApplicationController
   private
 
   def invitation_params
-    params.require(:invitation).permit(:availability_id)
+    params.require(:invitation).permit(:availability_id, :to_user_id)
   end
 end

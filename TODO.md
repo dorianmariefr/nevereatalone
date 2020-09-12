@@ -1,6 +1,5 @@
 ### features
 
-- invite others to availability
 - invited/split/invites
 - add day of week to day input (dimanche 6, lundi 7, ...)
 - edit availabilities ?
@@ -17,13 +16,16 @@
 - edit bio link
 - show image preview when uploading picture
 - add comments on own profile
+- edit availabilities
+- notify on availability datetime change
 
 ### show to
 
+- ayddan
 - damian
 - benjamin
 - xavier
-- sarah
+- sara
 - family
 
 ### later
