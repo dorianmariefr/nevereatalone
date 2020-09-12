@@ -1,6 +1,5 @@
 ### features
 
-- notify on availability datetime change
 - restrict message notifications
 - validate email addresses
 - home image with more people
