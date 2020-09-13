@@ -1,7 +1,5 @@
 ### features
 
-- restrict message notifications
-- validate email addresses
 - home image with more people
 - time intervals when creating availability
 - more examples of details (and except) (pique-nique)
@@ -25,6 +23,8 @@
 
 ### later
 
+- restrict message notifications
+  - do not send notifications when not already interacted with other?
 - translate to english
   - move all text to translations
   - localize date and times

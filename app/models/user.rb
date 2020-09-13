@@ -17,8 +17,13 @@ class User < ApplicationRecord
   has_many :received_invitations, class_name: "Invitation", foreign_key: :to_user_id, dependent: :destroy
   has_many :sent_invitations, class_name: "Invitation", foreign_key: :from_user_id, dependent: :destroy
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :first_name, presence: true
+
+  def email=(e)
+    e = e.strip.downcase if e
+    super
+  end
 
   def should_generate_new_friendly_id?
     slug.nil? || first_name_changed?
