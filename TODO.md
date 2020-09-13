@@ -1,6 +1,5 @@
 ### features
 
-- more examples of details (and except) (pique-nique)
 - conditions of availability (vegetarian, vegan, allergies, ...)
 - redirect to availability after create
 - title for availability page

@@ -10,10 +10,10 @@
   p.mb-4
     ' Des détails ?
     span.text-gray-600() (optionel)
-    = f.text_field :details, placeholder: "Pizza, sushi, chez moi, etc.", class: "w-full"
+    = f.text_field :details, placeholder: "Pizza, sushi, pique-nique, etc.", class: "w-full"
 
   p.mb-4
-    ' Est-ce que tu veux manger végétarien ?
+    ' Végétarien ?
     = yes_no(:vegetarian, f: f)
 
   p.mb-4= f.submit submit, class: "button--primary"
