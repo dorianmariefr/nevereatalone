@@ -1,14 +1,13 @@
+- title @availability.capitalized
+
 .max-w-2xl.mx-auto.px-4
+  h1.text-lg.font-bold.mb-4.text-center= @availability.capitalized
+
   .text-center.mb-4
     = link_to @availability.user do
       => user_image_for(@availability.user, class: "w-32 rounded-full inline-block")
 
   .text-center.mb-4= link_to @availability.user.first_name, @availability.user, class: "underline"
-
-  h1.text-lg.font-bold.mb-4.text-center
-    => l(@availability.starts_at, format: "Le %A %e %B à %kh%M")
-    ' à
-    = @availability.location
 
   - if @availability.vegetarian?
     p.mb-4.text-center.text-green-600

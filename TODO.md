@@ -1,7 +1,5 @@
 ### features
 
-- redirect to availability after create
-- title for availability page
 - do not send message when alone in an availability
 - add interests with comma
 - edit bio link
