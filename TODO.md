@@ -1,6 +1,5 @@
 ### features
 
-- conditions of availability (vegetarian, vegan, allergies, ...)
 - redirect to availability after create
 - title for availability page
 - do not send message when alone in an availability
@@ -20,6 +19,8 @@
 
 ### later
 
+- conditions of availability (vegetarian, vegan, allergies, ...)
+  - wait until needed?
 - time intervals when creating availability
   - available between X and Y
   - maybe in details?
@@ -29,6 +30,8 @@
 - restrict message notifications
   - do not send notifications when not already interacted with other?
   - fix when it happens?
+- invited/split/invites
+  - obvious?
 - translate to english
   - move all text to translations
   - localize date and times
@@ -36,8 +39,3 @@
   - translate all text to english
   - inevereatalone.com
   - too soon?
-
-### maybe later
-
-- invited/split/invites
-  - obvious?
