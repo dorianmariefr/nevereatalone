@@ -5,11 +5,7 @@
 
   - users = availability.conversation_users.without(current_user)
 
-  - if users.none?
-    p.mb-4.text-red-600 Votre message ne sera envoyé à personne
-
-    p.mb-4.text-gray-600 La ou les prochaines personnes que tu accepteras veront ce message
-  - elsif users.size == 1
+  - if users.size == 1
     p.mb-4.text-gray-600= "#{users.first.first_name} va reçevoir ce message"
   - else
     p.mb-4.text-gray-600

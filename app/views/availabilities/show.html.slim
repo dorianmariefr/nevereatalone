@@ -29,7 +29,8 @@
     = render_or_none @availability.invitations.where(from_user: @availability.user), none: "Aucune"
     h1.text-lg.font-bold.mb-4 Inviter quelqu'un à ce rendez-vous
     = render "invitations/form", availability: @availability
-    = render "messages/messages", availability: @availability
+    - if @availability.conversation_users.size > 1
+      = render "messages/messages", availability: @availability
   - elsif invitation = @availability.invitations.find_by(from_user: current_user)
     - if invitation.sent?
       p.text-blue-600.text-center.mb-4 Demande de rejoindre envoyée

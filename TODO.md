@@ -1,6 +1,5 @@
 ### features
 
-- do not send message when alone in an availability
 - add interests with comma
 - edit bio link
 - show image preview when uploading picture
