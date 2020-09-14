@@ -42,10 +42,9 @@
 
   = render_or_none(@user.received_comments)
 
-  - if @user != current_user
-    h1.text-lg.font-bold.mb-4 Ajouter un commentaire
+  h1.text-lg.font-bold.mb-4 Ajouter un commentaire
 
-    = render "comments/form", user: @user
+  = render "comments/form", user: @user
 
   h1.text-lg.font-bold.mb-4 Demandes de rendez-vous
 

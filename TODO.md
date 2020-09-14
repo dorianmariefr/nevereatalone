@@ -1,7 +1,6 @@
 ### features
 
 - show image preview when uploading picture
-- add comments on own profile
 
 ### show to
 
