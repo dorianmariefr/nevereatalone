@@ -9,14 +9,21 @@
     .text-center.base.text-gray-600= simple_format(@user.bio)
 
   - if @user == current_user
-    p.mb-4.text-center
-      = link_to "Se déconnecter", session_path, method: :delete, class: "underline"
+    - if @user.bio.present?
+      p.mb-4.text-center
+        = link_to "Modifier mon à propos de moi", [:edit, @user], class: "underline"
+    - else
+      p.mb-4.text-center
+        = link_to "Ajouter un à propos de moi", [:edit, @user], class: "underline"
 
     p.mb-4.text-center
       = link_to "Mettre à jour mon profil", [:edit, @user], class: "underline"
 
     p.mb-4.text-center
-      = link_to "Supprimer mon compte", @user, method: :delete, class: "text-red-600 underline"
+      = link_to "Se déconnecter", session_path, method: :delete, class: "underline"
+
+    p.mb-4.text-center
+      = link_to "Supprimer mon compte", @user, method: :delete, class: "text-red-600 underline", data: { confirm: "T'es sûr de supprimer ton compte ?" }
   - else
     p.mb-4.text-center
       = link_to "Envoyer un message", new_direct_message_path(to_user_id: @user.id), class: "underline"

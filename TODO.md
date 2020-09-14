@@ -1,6 +1,5 @@
 ### features
 
-- edit bio link
 - show image preview when uploading picture
 - add comments on own profile
 
