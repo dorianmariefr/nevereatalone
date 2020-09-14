@@ -6,12 +6,14 @@ class InterestsController < ApplicationController
   end
 
   def create
-    @interest.user = current_user
+    @interests = interest_params[:content].to_s.split(",").map do |content|
+      Interest.new(user: current_user, content: content)
+    end
 
-    if @interest.save
+    if @interests.all?(&:save)
       redirect_to current_user
     else
-      redirect_to current_user, alert: @interest.full_error_messages
+      redirect_to current_user, alert: @interests.map(&:full_error_messages).to_sentence
     end
   end
 
