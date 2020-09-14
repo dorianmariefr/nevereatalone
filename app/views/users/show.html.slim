@@ -3,7 +3,7 @@
 .max-w-2xl.mx-auto.px-4
   .mb-4.text-center=> user_image_for(@user, class: "w-32 rounded-full inline-block")
 
-  p.mb-4.text-center= @user.first_name
+  h1.text-lg.font-bold.mb-4.text-center= @user.first_name
 
   - if @user.bio.present?
     .text-center.base.text-gray-600= simple_format(@user.bio)
