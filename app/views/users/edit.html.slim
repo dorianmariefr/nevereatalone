@@ -4,9 +4,10 @@
   h1.text-center.text-lg.mb-4 Mettre à jour mon profil
 
   = form_for @user do |f|
-    p.mb-4
-      = f.label :image, "Photo de profil", class: "block"
-      = f.file_field :image
+    div(data-controller="image-preview")
+      p.mb-4= f.label :image, "Photo de profil", class: "block"
+      .mb-4= user_image_for @user, data: { target: "image-preview.output" }, class: "w-32 rounded-full inline-block"
+      p.mb-4= f.file_field :image, data: { target: "image-preview.input", action: "image-preview#readURL" }
 
     p.mb-4
       = f.label :first_name, "Prénom", class: "block"

@@ -1,6 +1,6 @@
-### features
+### feedback
 
-- show image preview when uploading picture
+...
 
 ### show to
 
