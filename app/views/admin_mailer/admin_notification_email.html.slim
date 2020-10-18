@@ -1,12 +1,8 @@
 
 table
-  tr
-    th(style="text-align: left") key
-    th(style="text-align: left") value
-
   - @model.attributes.each do |key, value|
     tr(style="border: 1px solid black")
-      td= key
+      td(style="font-weight: bold;")= key
       td
         = value
         - if key == "id" && (@model.is_a?(User) || @model.is_a?(Availability))
