@@ -6,7 +6,7 @@ html
   body(style="padding: 0; margin: 0; font-size: 16px; font-family: sans-serif")
     div(style="text-align: center; margin-top: 20px")
       = link_to root_url, style: "text-decoration: none; color: black" do
-        => image_tag attachments["logo.png"].url, style: "display: inline-block; width: 2rem; vertical-align: middle"
+        => image_tag asset_url("logo.png", host: ENV.fetch("BASE_URL")), style: "display: inline-block; width: 2rem; vertical-align: middle"
         ' Jamais manger seul
 
     div(style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #e2e8f0")
