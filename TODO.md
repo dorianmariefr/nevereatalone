@@ -1,6 +1,6 @@
 ### feedback
 
-- show week day in calendar
+...
 
 ### show to
 
