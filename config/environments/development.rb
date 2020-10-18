@@ -14,4 +14,5 @@ Rails.application.configure do
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_view.raise_on_missing_translations = true
+  config.hosts << "411122932540.ngrok.io"
 end

@@ -1,7 +1,7 @@
 = form_for availability do |f|
   p.mb-4
     ' Quand ?
-    = f.text_field :starts_at, data: { controller: "flatpickr", flatpickr_default_date: availability.starts_at.to_s }, class: "w-full sm:w-64"
+    = f.datetime_local_field :starts_at
 
   p.mb-4
     ' Où ?
