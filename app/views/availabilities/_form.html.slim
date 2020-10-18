@@ -1,7 +1,7 @@
 = form_for availability do |f|
   p.mb-4
     ' Quand ?
-    = f.datetime_local_field :starts_at
+    = f.datetime_local_field :starts_at, class: "w-full sm:w-64"
 
   p.mb-4
     ' Où ?
