@@ -1,0 +1,10 @@
+p
+  => link_to @to, @to
+  ' a accepté ta demande de rendez-vous
+  = link_to @availability, @availability
+
+p
+  ' Tu peux maintenant envoyer des messages à
+  => link_to @to, @to
+  ' sur
+  = link_to "la page du rendez-vous", @availability

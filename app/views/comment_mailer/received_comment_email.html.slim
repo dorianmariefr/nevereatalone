@@ -1,0 +1,11 @@
+p(style="color: #777")= @comment.content
+
+p
+  ' Cette personne te recommende ?
+  = @comment.recommend? ? "Oui" : "Non"
+
+p
+  ' Commentaire envoyé par
+  = link_to @from_user, @from_user
+
+p= link_to "Votre profil", @to_user

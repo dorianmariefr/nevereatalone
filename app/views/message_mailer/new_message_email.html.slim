@@ -1,0 +1,9 @@
+p(style="color: #777")= @message.content
+
+p
+  ' Envoyé par
+  = link_to @from, @from
+
+p
+  ' Voir les messages sur
+  = link_to "la page du rendez-vous #{@availability}", @availability

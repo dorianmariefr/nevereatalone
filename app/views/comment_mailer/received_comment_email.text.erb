@@ -1,7 +1,0 @@
-<%= @comment.content %>
-
-Cette personne te recommende ? <% if @comment.recommend? %>Oui<% else %>Non<% end %>
-
-Commentaire envoyé par <%= @from_user %>: <%= url_for(@from_user) %>
-
-Votre profil: <%= url_for(@to_user) %>
