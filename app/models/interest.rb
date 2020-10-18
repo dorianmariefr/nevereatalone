@@ -12,6 +12,6 @@ class Interest < ApplicationRecord
   end
 
   def to_s
-    content
+    "pour #{user}: #{content}"
   end
 end

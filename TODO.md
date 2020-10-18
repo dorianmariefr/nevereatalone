@@ -1,15 +1,13 @@
 ### feedback
 
-...
+- links email
+- show week day in calendar
 
 ### show to
 
-- ayddan
-- damian
-- benjamin
-- xavier
-- sara
-- family
+- reddit r/frace, r/paris
+- facebook group (schools, travellers, language exchange, ...)
+- people i meet in meetups
 
 ### later
 

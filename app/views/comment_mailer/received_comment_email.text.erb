@@ -1,6 +1,6 @@
 <%= @comment.content %>
 
-Cette personne te recommendes ? <% if @comment.recommend? %>Oui<% else %>Non<% end %>
+Cette personne te recommende ? <% if @comment.recommend? %>Oui<% else %>Non<% end %>
 
 Commentaire envoyé par <%= @from_user %>: <%= url_for(@from_user) %>
 

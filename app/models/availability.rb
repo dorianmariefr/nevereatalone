@@ -57,6 +57,10 @@ class Availability < ApplicationRecord
     to_s.then { |s| s[0].upcase + s[1..-1] }
   end
 
+  def to_admin_s
+    "par #{user}: #{to_s}"
+  end
+
   def to_s
     time = I18n.l(starts_at, format: "le %A %e %B à %kh%M")
     "#{time} à #{location}"

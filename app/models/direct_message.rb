@@ -11,6 +11,6 @@ class DirectMessage < ApplicationRecord
   end
 
   def to_s
-    content
+    "de #{from_user} à #{to_user}: #{content}"
   end
 end
