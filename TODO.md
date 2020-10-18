@@ -1,6 +1,5 @@
 ### feedback
 
-- links email
 - show week day in calendar
 
 ### show to

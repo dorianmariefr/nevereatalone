@@ -22,6 +22,7 @@ class Availability < ApplicationRecord
     end
   end
 
+
   validate do
     if starts_at && starts_at < Time.zone.now
       errors.add(:starts_at, "doit être dans le futur")
