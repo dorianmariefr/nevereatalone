@@ -1,11 +1,9 @@
 ### feedback
 
-...
+- invite multiple people at once
 
 ### show to
 
-- reddit r/frace, r/paris
-- facebook group (schools, travellers, language exchange, ...)
 - people i meet in meetups
 
 ### later

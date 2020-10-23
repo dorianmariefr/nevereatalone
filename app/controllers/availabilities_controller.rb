@@ -2,10 +2,10 @@ class AvailabilitiesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @current_user_availabilities = current_user.availabilities.recent
-    @past_current_user_availabilities = current_user.availabilities.past
-    @other_users_availabilities = Availability.where.not(user: current_user).recent
-    @past_other_users_availabilities = Availability.where.not(user: current_user).past
+    @current_user_availabilities = current_user.availabilities.recent.order(starts_at: :desc)
+    @past_current_user_availabilities = current_user.availabilities.past.order(starts_at: :desc)
+    @other_users_availabilities = Availability.where.not(user: current_user).recent.order(starts_at: :desc)
+    @past_other_users_availabilities = Availability.where.not(user: current_user).past.order(starts_at: :desc)
     @availability = Availability.new(user: current_user)
   end
 
