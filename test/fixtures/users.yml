@@ -1,0 +1,17 @@
+dorian:
+  email: dorian@dorianmarie.fr
+  slug: dorian
+  first_name: Dorian
+  password_digest: <%= BCrypt::Password.create('dorian') %>
+
+damien:
+  email: damien@gmail.com
+  slug: damien
+  first_name: Damien
+  password_digest: <%= BCrypt::Password.create('damien') %>
+
+laurie:
+  email: laurie@gmail.com
+  slug: laurie
+  first_name: Laurie
+  password_digest: <%= BCrypt::Password.create('laurie') %>

@@ -5,13 +5,12 @@ class InvitationMailer < ApplicationMailer
     @from = @invitation.from_user
     @to = @invitation.to_user
 
-    if @from == @invitation.availability.user
-      subject = "#{@from.first_name} demande de rejoindre le rendez-vous "
-    else
-      subject = "#{@from.first_name} t'invite à rejoindre le rendez-vous "
-    end
-
-    subject += l(@availability.starts_at, format: "le %A %e %B à %kh%M")
+    subject =
+      if @invitation.requested?
+        "#{@from} a demandé de rejoindre ton rendez-vous #{@availability}"
+      else
+        "#{@from} t'invite à rejoindre son rendez-vous #{@availability}"
+      end
 
     mail(to: @to.email, subject: subject)
   end
@@ -22,13 +21,12 @@ class InvitationMailer < ApplicationMailer
     @from = @invitation.from_user
     @to = @invitation.to_user
 
-    if @from == @invitation.availability.user
-      subject = "#{@to.first_name} a accepté ta demande de rendez-vous "
-    else
-      subject = "#{@to.first_name} a accepté ton invitation au rendez-vous "
-    end
-
-    subject += l(@availability.starts_at, format: "le %A %e %B à %kh%M")
+    subject =
+      if @invitation.requested?
+        "#{@to} a accepté ta demande de rejoindre son rendez-vous #{@availability}"
+      else
+        "#{@to} a accepté ton invitation à rejoindre ton rendez-vous #{@availability}"
+      end
 
     mail(to: @from.email, subject: subject)
   end

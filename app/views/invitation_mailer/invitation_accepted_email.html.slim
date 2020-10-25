@@ -1,10 +1,22 @@
-p
-  => link_to @to, @to
-  ' a accepté ta demande de rendez-vous
-  = link_to @availability, @availability
+- if @invitation.requested?
+  p
+    => link_to @to, @to
+    ' a accepté ta demande de rejoindre son rendez-vous
+    = link_to @availability, @availability
 
-p
-  ' Tu peux maintenant envoyer des messages à
-  => link_to @to, @to
-  ' sur
-  = link_to "la page du rendez-vous", @availability
+  p
+    ' Tu peux maintenant envoyer des messages à
+    => link_to @to, @to
+    ' sur
+    = link_to "la page du rendez-vous", @availability
+- else
+  p
+    => link_to @to, @to
+    ' a accepté ton invitation à rejoindre ton rendez-vous
+    = link_to @availability, @availability
+
+  p
+    ' Tu peux maintenant envoyer des messages à
+    => link_to @to, @to
+    ' sur
+    = link_to "la page du rendez-vous", @availability

@@ -1,10 +1,20 @@
-p
-  => link_to @to, @to
-  ' te demande s'il peut rejoindre ton rendez-vous
-  = link_to @availability, @availability
-  ' .
+- if @invitation.requested?
+  p
+    => link_to @from, @from
+    ' a demandé de rejoindre ton rendez-vous
+    = link_to @availability, @availability
 
-p
-  ' Vas sur la
-  => link_to "la page du rendez-vous", @availability
-  ' pour accepter ou décliner.
+  p
+    ' Tu peux aller sur
+    => link_to "la page du rendez-vous", @availability
+    ' pour accepter ou décliner
+- else
+  p
+    => link_to @from, @from
+    ' t'invite à rejoindre son rendez-vous
+    = link_to @availability, @availability
+
+  p
+    ' Tu peux aller sur
+    => link_to "la page du rendez-vous", @availability
+    ' pour accepter ou décliner
