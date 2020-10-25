@@ -1,11 +1,11 @@
-p(style="color: #777")= @direct_message.content
+div(style="color: #777")= markdown @direct_message.content
 
 p
   ' Envoyé par
   = link_to_with_token @from_user, @from_user
 
 p
-  = link_to_with_token "Voir les messages avec #{@from_user}", direct_messages_url(user_id: @from_user.id)
+  = link_to "Voir les messages avec #{@from_user}", direct_messages_url(user_id: @from_user.id, token: @user.login_token)
 
 p
-  = link_to_with_token "Répondre au message de #{@from_user}", direct_messages_url(user_id: @from_user.id)
+  = link_to "Répondre au message de #{@from_user}", direct_messages_url(user_id: @from_user.id, token: @user.login_token)

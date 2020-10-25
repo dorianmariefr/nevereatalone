@@ -1,7 +1,5 @@
 ### feedback
 
-- markdown in emails for messages and direct messages
-
 ### show to
 
 - people i meet in meetups
