@@ -13,7 +13,12 @@ class SessionsController < ApplicationController
 
     if @user&.authenticate(session_params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+
+      if params[:redirect_to] =~ /\A\/[^\/]*\z/
+        redirect_to params[:redirect_to]
+      else
+        redirect_to root_path
+      end
     else
       flash.now.alert = "Mauvaise combinaison d'adresse e-mail et de mot de passe"
       render :new

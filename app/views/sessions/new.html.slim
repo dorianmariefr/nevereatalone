@@ -20,6 +20,8 @@
       ' et ton mot de passe
 
     = form_for :session, url: session_path do |f|
+      = hidden_field_tag :redirect_to, params[:redirect_to]
+
       p.mb-4
         = f.label :email, "Adresse e-mail", class: "block"
         = f.text_field :email, placeholder: "Adresse e-mail", class: "w-full", value: params.dig(:session, :email)

@@ -1,6 +1,5 @@
 ### feedback
 
-- redirect after login/signup when had an access denied before
 - markdown in emails for messages and direct messages
 
 ### show to

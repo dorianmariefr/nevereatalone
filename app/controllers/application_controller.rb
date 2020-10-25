@@ -13,7 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do
-    redirect_to root_path, alert: "Tu ne peux pas faire ça"
+    redirect_to(
+      new_session_path(redirect_to: request.fullpath),
+      alert: "Tu as sûrement besoin d'être connecté pour aller sur cette page",
+    )
   end
 
   private
