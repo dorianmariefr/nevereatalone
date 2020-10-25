@@ -1,6 +1,9 @@
 ### feedback
 
 - invite multiple people at once
+- invitation subject for email
+- links in messages / direct messages
+- ActiveRecord::RecordNotFound
 
 ### show to
 
