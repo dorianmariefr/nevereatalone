@@ -1,11 +1,18 @@
-= form_for Invitation.new(availability: availability) do |f|
-  = f.hidden_field :availability_id
+- users = User.all.without(current_user)
+- users = users.without(Invitation.where(availability: availability, from_user: current_user).map(&:to_user))
+- users = users.without(Invitation.where(availability: availability, to_user: current_user).map(&:from_user))
 
-  p.mb-4
-    => f.label :to_user, "Qui souhaites-tu inviter?"
+- if users.any?
+  = form_for Invitation.new(availability: availability) do |f|
+    = f.hidden_field :availability_id
 
-  p.mb-4
-    => f.select :to_user_id, options_from_collection_for_select(User.all.without(current_user), :id, :to_s), {}, multiple: true
+    p.mb-4
+      => f.label :to_user, "Qui souhaites-tu inviter?"
 
-  p.mb-4
-    => f.submit "Envoyer une invitation"
+    p.mb-4
+      => f.select :to_user_id, options_from_collection_for_select(users, :id, :to_s), {}, multiple: true
+
+    p.mb-4
+      => f.submit "Envoyer une invitation"
+- else
+  p.mb-4 Tout le monde est déjà invité
