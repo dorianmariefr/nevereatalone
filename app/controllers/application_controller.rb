@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   before_action :redirect_to_main_domain
   before_action :set_paper_trail_whodunnit
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render "pages/not_found"
+  end
+
   rescue_from CanCan::AccessDenied do
     redirect_to root_path, alert: "Tu ne peux pas faire ça"
   end
