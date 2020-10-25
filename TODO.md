@@ -5,6 +5,7 @@
 - accept / decline links in emails
 - auto-login token in email links
 - prevent double invitations (requested / invited)
+- do not list already invited people
 
 ### show to
 

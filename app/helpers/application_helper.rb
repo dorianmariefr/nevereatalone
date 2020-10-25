@@ -12,7 +12,7 @@ module ApplicationHelper
       if user.image.attached?
         image = image_tag(user.square_image, **options)
       else
-        image = image_tag("user.svg", **options)
+        image = image_tag("user.png", **options)
       end
 
       if user.vegetarian?

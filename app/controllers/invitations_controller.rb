@@ -6,15 +6,27 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitation.from_user = current_user
-    @invitation.to_user ||= @invitation.availability&.user
-    @invitation.status = "sent"
+    @invitations = invitation_params[:to_user_id].reject(&:blank?).map do |to_user_id|
+      @invitation = Invitation.new(
+        availability_id: invitation_params[:availability_id],
+        to_user_id: to_user_id
+      )
+      @invitation.to_user_id ||= @invitation.availability&.user
+      @invitation.from_user = current_user
+      @invitation.status = "sent"
+      @invitation
+    end
 
-    if @invitation.save
-      InvitationMailer.with(invitation: @invitation).invitation_sent_email.deliver_now
-      redirect_to @invitation.availability
+    if @invitations.any? && @invitations.map(&:save).all? { |result| result == true }
+      @invitations.each do |invitation|
+        InvitationMailer.with(invitation: invitation).invitation_sent_email.deliver_now
+      end
+      redirect_to @invitations.first.availability
     else
-      redirect_to root_path, alert: @invitation.full_error_messages
+      redirect_to(
+        root_path,
+        alert: @invitations.first&.full_error_messages || "Aucun invité selectionné",
+      )
     end
   end
 
@@ -34,6 +46,6 @@ class InvitationsController < ApplicationController
   private
 
   def invitation_params
-    params.require(:invitation).permit(:availability_id, :to_user_id)
+    params.require(:invitation).permit(:availability_id, to_user_id: [])
   end
 end
