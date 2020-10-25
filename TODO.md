@@ -1,7 +1,6 @@
 ### feedback
 
 - invite multiple people at once
-- invitation subject for email
 - links in messages / direct messages
 - accept / decline links in emails
 - auto-login token in email links
