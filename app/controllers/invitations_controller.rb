@@ -34,6 +34,12 @@ class InvitationsController < ApplicationController
 
   def accept
     @invitation = Invitation.find(params[:invitation_id])
+    if @invitation.accepted? || @invitation.declined?
+      return redirect_to(
+        @invitation.availability,
+        alert: "Tu as déjà repondu à cette invitation",
+      )
+    end
     @invitation.update!(status: :accepted)
     InvitationMailer.with(invitation: @invitation).invitation_accepted_email.deliver_now
     redirect_to @invitation.availability
@@ -41,6 +47,12 @@ class InvitationsController < ApplicationController
 
   def decline
     @invitation = Invitation.find(params[:invitation_id])
+    if @invitation.accepted? || @invitation.declined?
+      return redirect_to(
+        @invitation.availability,
+        alert: "Tu as déjà repondu à cette invitation",
+      )
+    end
     @invitation.update!(status: :declined)
     redirect_to @invitation.availability
   end
