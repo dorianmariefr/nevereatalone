@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :direct_messages
 
   resources :invitations do
+    get "accept" => "invitations#accept"
     post "accept" => "invitations#accept"
+    get "decline" => "invitations#decline"
     post "decline" => "invitations#decline"
   end
 

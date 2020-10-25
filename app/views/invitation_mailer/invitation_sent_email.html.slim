@@ -3,18 +3,18 @@
     => link_to @from, @from
     ' a demandé de rejoindre ton rendez-vous
     = link_to @availability, @availability
-
-  p
-    ' Tu peux aller sur
-    => link_to "la page du rendez-vous", @availability
-    ' pour accepter ou décliner
 - else
   p
     => link_to @from, @from
     ' t'invite à rejoindre son rendez-vous
     = link_to @availability, @availability
 
-  p
-    ' Tu peux aller sur
-    => link_to "la page du rendez-vous", @availability
-    ' pour accepter ou décliner
+p
+  => link_to "Décliner", [@invitation, :decline], style: "display: inline-block; background-color: #ccc; padding: 0.5rem; border-radius: 5px; text-decoration: none; color: black;"
+  ' ou
+  => link_to "Accepter", [@invitation, :accept], style: "display: inline-block; background-color: #ecc94b; padding: 0.5rem; border-radius: 5px; text-decoration: none; color: black;"
+
+p
+  ' Tu peux aussi aller sur
+  => link_to "la page du rendez-vous", @availability
+  ' pour accepter ou décliner
