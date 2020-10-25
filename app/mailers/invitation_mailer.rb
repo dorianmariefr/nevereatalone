@@ -4,6 +4,7 @@ class InvitationMailer < ApplicationMailer
     @availability = @invitation.availability
     @from = @invitation.from_user
     @to = @invitation.to_user
+    @user = @to
 
     subject =
       if @invitation.requested?
@@ -20,6 +21,7 @@ class InvitationMailer < ApplicationMailer
     @availability = @invitation.availability
     @from = @invitation.from_user
     @to = @invitation.to_user
+    @user = @from
 
     subject =
       if @invitation.requested?

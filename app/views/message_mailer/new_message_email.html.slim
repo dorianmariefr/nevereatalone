@@ -2,8 +2,8 @@ p(style="color: #777")= @message.content
 
 p
   ' Envoyé par
-  = link_to @from, @from
+  = link_to_with_token @from, @from
 
 p
   ' Voir les messages sur
-  = link_to "la page du rendez-vous #{@availability}", @availability
+  = link_to_with_token "la page du rendez-vous #{@availability}", @availability

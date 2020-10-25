@@ -6,6 +6,6 @@ p
 
 p
   ' Commentaire envoyé par
-  = link_to @from_user, @from_user
+  = link_to_with_token @from_user, @from_user
 
-p= link_to "Votre profil", @to_user
+p= link_to_with_token "Votre profil", @to_user

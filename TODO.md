@@ -1,10 +1,10 @@
 ### feedback
 
-- auto-login token in email links
 - prevent double invitations (requested / invited)
 - do not list already invited people
 - can only accept/decline once
 - redirect after login/signup when had an access denied before
+- markdown in emails for messages and direct messages
 
 ### show to
 

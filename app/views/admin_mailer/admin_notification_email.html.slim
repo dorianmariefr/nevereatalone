@@ -1,4 +1,3 @@
-
 table
   - @model.attributes.each do |key, value|
     tr(style="border: 1px solid black")
@@ -7,7 +6,7 @@ table
         = value
         - if key == "id" && (@model.is_a?(User) || @model.is_a?(Availability))
           |  (
-          = link_to @model, @model
+          = link_to_with_token @model, @model
           ' )
         - if key == "user_id" || key == "from_user_id" || key == "to_user_id"
           |  (

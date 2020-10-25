@@ -4,6 +4,7 @@ class MessageMailer < ApplicationMailer
     @to = params[:to]
     @availability = @message.availability
     @from = @message.user
+    @user = @to
 
     subject = "Nouveau message pour ton rendez-vous #{@availability.to_s}"
 

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery prepend: true, with: :exception
+  before_action :auto_login_if_token
 
   check_authorization unless: :admin_controller?
 
@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def auto_login_if_token
+    return unless params[:token].present?
+
+    user = User.from_token(params[:token])
+    return unless user
+    session[:user_id] = user.id
+  end
 
   def current_user
     return unless session[:user_id].present?

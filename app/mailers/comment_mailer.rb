@@ -3,6 +3,7 @@ class CommentMailer < ApplicationMailer
     @comment = params[:comment]
     @from_user = @comment.from_user
     @to_user = @comment.to_user
+    @user = @to_user
 
     mail(
       to: @to_user.email,
