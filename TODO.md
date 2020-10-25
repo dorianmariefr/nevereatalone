@@ -6,7 +6,7 @@
 
 ### later
 
-- conditions of availability (vegetarian, vegan, allergies, ...)
+- conditions of availability (vegetarian (already done), vegan, allergies, ...)
   - wait until needed?
 - time intervals when creating availability
   - available between X and Y
@@ -17,7 +17,7 @@
 - restrict message notifications
   - do not send notifications when not already interacted with other?
   - fix when it happens?
-- invited/split/invites
+- invited/split/invites (money)
   - obvious?
 - translate to english
   - move all text to translations
