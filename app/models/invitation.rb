@@ -28,6 +28,10 @@ class Invitation < ApplicationRecord
     if from_user != availability.user  && to_user != availability.user
       errors.add(:to_user, "doit être celui qui a créé le rendez-vous")
     end
+
+    if Invitation.where(availability: availability, from_user: to_user, to_user: from_user).any?
+      errors.add(:to_user, "ne doît pas déjà être invitée")
+    end
   end
 
   def sent?

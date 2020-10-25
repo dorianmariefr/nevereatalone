@@ -9,3 +9,6 @@ fr:
       availability:
         location: "Lieu"
         starts_at: "Heure de début"
+
+      invitation:
+        to_user: "La personne qui reçoit l'invitation"

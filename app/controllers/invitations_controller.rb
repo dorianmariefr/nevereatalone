@@ -6,12 +6,14 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    @invitations = invitation_params[:to_user_id].reject(&:blank?).map do |to_user_id|
+    @availability = Availability.find(invitation_params[:availability_id])
+    @to_user_ids = invitation_params[:to_user_id] || [@availability.user.id]
+    @invitations = @to_user_ids.reject(&:blank?).map do |to_user_id|
       @invitation = Invitation.new(
         availability_id: invitation_params[:availability_id],
         to_user_id: to_user_id
       )
-      @invitation.to_user_id ||= @invitation.availability&.user
+      @invitation.to_user_id ||= @invitation.availability.user
       @invitation.from_user = current_user
       @invitation.status = "sent"
       @invitation
@@ -21,10 +23,10 @@ class InvitationsController < ApplicationController
       @invitations.each do |invitation|
         InvitationMailer.with(invitation: invitation).invitation_sent_email.deliver_now
       end
-      redirect_to @invitations.first.availability
+      redirect_to @availability
     else
       redirect_to(
-        root_path,
+        @availability,
         alert: @invitations.first&.full_error_messages || "Aucun invité selectionné",
       )
     end

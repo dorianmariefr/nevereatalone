@@ -1,6 +1,5 @@
 ### feedback
 
-- prevent double invitations (requested / invited)
 - do not list already invited people
 - can only accept/decline once
 - redirect after login/signup when had an access denied before
