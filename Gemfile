@@ -26,6 +26,7 @@ gem "bugsnag"
 gem "sprockets", "3.7.2" # https://github.com/sass/sassc-rails/issues/122
 gem "mini_magick"
 gem "image_processing"
+gem "commonmarker"
 
 group :development do
   gem "capistrano"

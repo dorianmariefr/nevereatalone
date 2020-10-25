@@ -1,5 +1,5 @@
-.pl-2.border-l-2.border-gray-500.mb-4
-  = simple_format(message.content)
+.pl-2.border-l-2.border-gray-500.mb-4.base
+  = markdown(message.content)
 
 p.mb-4
   => link_to message.user.first_name, message.user, class: "underline"

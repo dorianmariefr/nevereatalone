@@ -78,4 +78,8 @@ module ApplicationHelper
       f.label(field, "Non", value: false)
     ])
   end
+
+  def markdown(text)
+    CommonMarker.render_html(text, :DEFAULT, [:autolink]).html_safe
+  end
 end

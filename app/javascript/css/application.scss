@@ -117,4 +117,16 @@ input[type="submit"],
     list-style: disc;
     margin-bottom: 1rem
   }
+
+  a {
+    text-decoration: underline;
+  }
+
+  blockquote {
+    color: #a0aec0;
+  }
+
+  ul {
+    list-style-position: inside;
+  }
 }

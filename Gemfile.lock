@@ -101,6 +101,8 @@ GEM
       capistrano (~> 3.7)
       capistrano-bundler
       puma (~> 4.0)
+    commonmarker (0.21.0)
+      ruby-enum (~> 0.5)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     dotenv (2.7.6)
@@ -251,6 +253,8 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    ruby-enum (0.8.0)
+      i18n
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     ruby2_keywords (0.0.2)
@@ -313,6 +317,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano3-puma
+  commonmarker
   dotenv-rails
   down
   font-awesome-sass

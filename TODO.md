@@ -1,7 +1,5 @@
 ### feedback
 
-- invite multiple people at once
-- links in messages / direct messages
 - accept / decline links in emails
 - auto-login token in email links
 - prevent double invitations (requested / invited)
