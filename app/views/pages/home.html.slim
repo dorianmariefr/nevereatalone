@@ -10,6 +10,10 @@
   p.text-center.mb-4
     = link_to "S'inscrire", new_user_path, class: "button button--primary button--large"
 
+  br
+  p.text-center.mb-4
+    = link_to "Aperçu des recettes", posts_path, class: "button button--primary button--large"
+
 .hidden.sm:block
   .min-h-screen.bg-cover.bg-center.pt-16(style="background-image: url(#{asset_path("background.jpg")})")
     h1.text-center.text-5xl.max-w-md.mx-auto.text-white.font-bold.mb-4.text-shadow
@@ -20,3 +24,7 @@
 
     p.text-center
       = link_to "S'inscrire", new_user_path, class: "button button--primary button--large"
+
+    br
+    p.text-center
+      = link_to "Aperçu des recettes", posts_path, class: "button button--primary button--large"

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   skip_authorization_check
 
   def index
+    @post = Post.new
     @posts = Post.all
   end
 

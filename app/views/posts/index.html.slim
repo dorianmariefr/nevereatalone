@@ -1,5 +1,8 @@
 .max-w-2xl.mx-auto.px-4
   h1.text-lg.mb-4.font-bold Vos idées de recettes
+  
+  - if current_user
+    = render "posts/form", post: @post
 
   - @posts.each do |post|
     .bg-gray-300.p-4.my-4.rounded
