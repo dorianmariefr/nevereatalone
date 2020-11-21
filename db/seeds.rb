@@ -1,1 +1,0 @@
-Post.create(title: "Patate douce au lait de coco", content: "Dans 1 cocotte minute mettre : POIX CHICHES DÉTREMPÉS (à faire tremper la veille dans de l'eau ;) + patates douce + oignon + ail + gingembre + curry + cumin + coriandre + sel + poivre RECOUVRIR AVEC DU LAIT DE COCO ET DE L'EAU ET LAISSER MIJOTER 30MIN BONNE APPÉTIT ;)", user_id: User.find_by(first_name: "Laurie").id)

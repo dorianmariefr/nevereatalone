@@ -1,13 +1,13 @@
+- title "Recettes"
+
 .max-w-2xl.mx-auto.px-4
-  h1.text-lg.mb-4.font-bold Vos idées de recettes
+  h1.text-lg.mb-4.font-bold Recettes
   
   - if current_user
     = render "posts/form", post: @post
 
   - @posts.each do |post|
     .bg-gray-300.p-4.my-4.rounded
-      b= post.title
-      br
-      = post.content
-      br
-      b= link_to post.user, user_path(post.user)
+      p.font-bold.mb-4= post.title
+      .base= markdown(post.content)
+      p.font-bold.mb-4= link_to post.user.first_name, post.user, class: "text-underline"

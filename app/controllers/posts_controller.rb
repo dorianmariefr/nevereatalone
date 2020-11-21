@@ -8,12 +8,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     if @post.save
-      flash[:sucess] = "merci pour la recette ;)"
       redirect_back fallback_location: root_path
     else
-      flash[:alert] = @post.errors_to_sentence
+      flash[:alert] = @post.full_error_messages
       redirect_to root_url
     end
   end
