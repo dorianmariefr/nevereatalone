@@ -10,20 +10,19 @@
       div
 
         = link_to posts_path, class: "mr-4" do
-          => fa("columns")
+          => fa("book-open")
           ' Recettes
 
         = link_to availabilities_path, class: "mr-4" do
           => fa("columns")
           ' Demandes
 
-        = link_to users_path, class: "mr-4" do
-          => fa("users")
-          ' Personnes
-
         = link_to current_user, class: "mr-4" do
           => fa("user")
           ' Profil
+
+        = link_to users_path, class: "mr-4" do
+          => fa("users")
 
         = link_to direct_messages_path, class: "mr-4" do
           => fa("envelope")

@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     can :create, User
+    can :read, Post
 
     return unless user
 
@@ -39,12 +40,12 @@ class Ability
       can :manage, Comment, from_user_id: user.id
 
       can :read, Interest
-      can :create, Interest
       can :manage, Interest, user_id: user.id
 
       can :read, DirectMessage, to_user_id: user.id
-      can :create, DirectMessage
       can :manage, DirectMessage, from_user_id: user.id
+
+      can :manage, Post, user_id: user.id
     end
   end
 end

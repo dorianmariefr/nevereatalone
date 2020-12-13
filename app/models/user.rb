@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :sent_direct_messages, class_name: "DirectMessage", foreign_key: :from_user_id, dependent: :destroy
   has_many :received_invitations, class_name: "Invitation", foreign_key: :to_user_id, dependent: :destroy
   has_many :sent_invitations, class_name: "Invitation", foreign_key: :from_user_id, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :first_name, presence: true

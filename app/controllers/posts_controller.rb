@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-  skip_authorization_check
+  load_and_authorize_resource
 
   def index
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def create
@@ -11,17 +11,16 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_back fallback_location: root_path
+      redirect_to posts_url
     else
-      flash[:alert] = @post.full_error_messages
-      redirect_to root_url
+      flash.now.alert = @post.full_error_messages
+      redirect_to posts_url
     end
   end
 
+  private
 
-  protected
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content)
   end
-
 end
