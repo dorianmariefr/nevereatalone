@@ -8,14 +8,13 @@
           ' Jamais manger seul
 
       div
+        = link_to availabilities_path, class: "mr-4" do
+          => fa("columns")
+          ' Demandes
 
         = link_to posts_path, class: "mr-4" do
           => fa("book-open")
           ' Recettes
-
-        = link_to availabilities_path, class: "mr-4" do
-          => fa("columns")
-          ' Demandes
 
         = link_to current_user, class: "mr-4" do
           => fa("user")
