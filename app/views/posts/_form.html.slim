@@ -1,0 +1,11 @@
+= form_for @post do |f|
+  p.mb-4
+    = f.label :title, "Nom de la recette", class: "block"
+    = f.text_field :title, class: "w-full sm:w-64"
+
+  p.mb-4
+    = f.label :content, "Recette", class: "block"
+    = f.text_area :content, class: "w-full sm:w-64 h-64"
+
+  p.mb-4
+    = f.submit "Ajouter ma recette", class: "button--primary"
